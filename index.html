@@ -3,26 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infinite Solutions - Premium Automated Parking Systems</title>
+    <title>Infinite Solutions - Automated Parking Systems</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-blue: #0047AB;
-            --secondary-blue: #1E90FF;
-            --gold-accent: #D4AF37;
-            --dark-navy: #001F3F;
-            --light-bg: #F8FAFB;
+            --primary: #0A0E27;
+            --secondary: #1A1F3A;
+            --accent-gold: #C9A962;
+            --accent-blue: #2D5F99;
             --white: #FFFFFF;
-            --text-primary: #1A2332;
-            --text-secondary: #4A5568;
-            --text-light: #718096;
-            --border-light: #E2E8F0;
-            --shadow-sm: 0 2px 8px rgba(0, 71, 171, 0.04);
-            --shadow-md: 0 8px 24px rgba(0, 71, 171, 0.08);
-            --shadow-lg: 0 16px 48px rgba(0, 71, 171, 0.12);
-            --shadow-xl: 0 24px 64px rgba(0, 71, 171, 0.16);
+            --gray-100: #F5F5F7;
+            --gray-200: #E8E8ED;
+            --gray-300: #D1D1D6;
+            --gray-800: #1D1D1F;
+            --text-primary: #1D1D1F;
+            --text-secondary: #6E6E73;
         }
 
         * {
@@ -37,142 +34,112 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--white);
+            color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-weight: 700;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-        }
-
-        /* Header - Unique Luxury Navigation */
+        /* ULTRA MODERN HEADER */
         .header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            background: linear-gradient(135deg, rgba(0, 31, 63, 0.98) 0%, rgba(0, 71, 171, 0.95) 100%);
-            backdrop-filter: blur(20px);
-            border-bottom: 2px solid var(--gold-accent);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 24px rgba(0, 71, 171, 0.3);
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .header.scrolled {
-            box-shadow: 0 8px 32px rgba(0, 71, 171, 0.4);
-            background: linear-gradient(135deg, rgba(0, 31, 63, 0.99) 0%, rgba(0, 71, 171, 0.98) 100%);
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(201, 169, 98, 0.1);
         }
 
         .header-container {
-            max-width: 1600px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 1.5rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
-            z-index: 1;
         }
 
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
-            position: relative;
-        }
-
-        .logo-container::before {
-            content: '';
-            position: absolute;
-            left: -1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 4px;
-            height: 70%;
-            background: linear-gradient(180deg, var(--gold-accent), transparent);
-            border-radius: 2px;
+            gap: 1rem;
         }
 
         .logo-image {
-            height: 72px;
+            height: 42px;
             width: auto;
-            filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.3));
-            transition: all 0.3s ease;
-        }
-
-        .logo-image:hover {
-            filter: drop-shadow(0 6px 16px rgba(212, 175, 55, 0.5));
-            transform: scale(1.05);
         }
 
         .logo-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 900;
+            font-size: 1.5rem;
+            font-weight: 700;
             color: var(--white);
-            letter-spacing: 0.02em;
-            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
-            position: relative;
-        }
-
-        .logo-text::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 40%;
-            height: 3px;
-            background: var(--gold-accent);
-            border-radius: 2px;
+            letter-spacing: -0.02em;
         }
 
         .logo-accent {
-            color: var(--gold-accent);
-            font-weight: 900;
+            color: var(--accent-gold);
         }
 
+        .nav-menu {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-cta {
+            padding: 0.75rem 1.75rem;
+            background: var(--accent-gold);
+            color: var(--primary);
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: #B89952;
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Toggle */
         .nav-toggle {
             display: none;
             flex-direction: column;
-            gap: 6px;
+            gap: 5px;
             background: transparent;
             border: none;
             cursor: pointer;
-            padding: 8px;
+            padding: 4px;
         }
 
         .nav-toggle span {
-            width: 28px;
+            width: 24px;
             height: 2px;
             background: var(--white);
             border-radius: 2px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
         }
 
         .nav-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translateY(8px);
+            transform: rotate(45deg) translate(6px, 6px);
         }
 
         .nav-toggle.active span:nth-child(2) {
@@ -180,89 +147,27 @@
         }
 
         .nav-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translateY(-8px);
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 2.5rem;
-            align-items: center;
-        }
-
-        .nav-link {
-            font-size: 1rem;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            position: relative;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            letter-spacing: 0.025em;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gold-accent);
-            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 0 8px var(--gold-accent);
-        }
-
-        .nav-link:hover {
-            color: var(--white);
-            text-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .nav-cta {
-            padding: 0.875rem 2rem;
-            background: linear-gradient(135deg, var(--gold-accent), #B8941E);
-            color: var(--dark-navy);
-            border-radius: 50px;
-            font-weight: 700;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 16px rgba(212, 175, 55, 0.4);
-            border: 2px solid transparent;
-        }
-
-        .nav-cta:hover {
-            background: var(--gold-accent);
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.6);
-            border-color: var(--white);
-            color: var(--dark-navy);
-        }
-
-        .nav-cta::after {
-            display: none;
+            transform: rotate(-45deg) translate(6px, -6px);
         }
 
         /* Mobile Menu */
         .mobile-nav {
             display: none;
             position: fixed;
-            top: 105px;
+            top: 90px;
             left: 0;
             right: 0;
-            background: linear-gradient(135deg, rgba(0, 31, 63, 0.98) 0%, rgba(0, 71, 171, 0.95) 100%);
+            background: rgba(10, 14, 39, 0.98);
             backdrop-filter: blur(20px);
-            border-bottom: 2px solid var(--gold-accent);
-            box-shadow: 0 8px 32px rgba(0, 71, 171, 0.4);
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 1px solid rgba(201, 169, 98, 0.1);
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .mobile-nav.active {
-            max-height: calc(100vh - 105px);
-            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            transform: translateY(0);
+            opacity: 1;
         }
 
         .mobile-nav-content {
@@ -273,505 +178,170 @@
         }
 
         .mobile-nav .nav-link {
-            padding: 0.75rem 0;
+            padding: 1rem 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Hero Section - LEGENDARY MECHANICAL DESIGN */
+        /* ULTRA MODERN HERO */
         .hero {
             position: relative;
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background:
-                linear-gradient(135deg, #000814 0%, #001D3D 30%, #003566 70%, #0047AB 100%);
-            padding: 10rem 2rem 8rem;
+            background: linear-gradient(180deg, #0A0E27 0%, #1A1F3A 100%);
+            padding: 8rem 2rem 4rem;
             overflow: hidden;
         }
 
+        /* Minimal Geometric Background */
         .hero::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
             right: 0;
-            bottom: 0;
-            background-image:
-                linear-gradient(0deg, transparent 24%, rgba(212, 175, 55, 0.05) 25%, rgba(212, 175, 55, 0.05) 26%, transparent 27%, transparent 74%, rgba(212, 175, 55, 0.05) 75%, rgba(212, 175, 55, 0.05) 76%, transparent 77%, transparent),
-                linear-gradient(90deg, transparent 24%, rgba(212, 175, 55, 0.05) 25%, rgba(212, 175, 55, 0.05) 26%, transparent 27%, transparent 74%, rgba(212, 175, 55, 0.05) 75%, rgba(212, 175, 55, 0.05) 76%, transparent 77%, transparent);
-            background-size: 50px 50px;
-            animation: gridMove 20s linear infinite;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(45, 95, 153, 0.05) 100%);
+            clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
         }
 
-        @keyframes gridMove {
-            0% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(50px, 50px);
-            }
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 150px;
-            background: linear-gradient(to top, var(--white), transparent);
-        }
-
-        /* MECHANICAL PARKING PLATFORM ANIMATION */
-        .hero-bg-shapes {
+        /* Minimal Grid Lines */
+        .grid-lines {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(201, 169, 98, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(201, 169, 98, 0.03) 1px, transparent 1px);
+            background-size: 100px 100px;
             pointer-events: none;
         }
 
-        /* Rotating Gears */
-        .hero-shape {
+        /* Mechanical Accents */
+        .mechanical-accent {
             position: absolute;
-            width: 120px;
-            height: 120px;
-            border: 3px solid rgba(212, 175, 55, 0.3);
-            border-radius: 50%;
-            animation: rotateGear 15s linear infinite;
-        }
-
-        .hero-shape::before,
-        .hero-shape::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(212, 175, 55, 0.15);
-        }
-
-        .hero-shape::before {
-            width: 80%;
-            height: 80%;
+            width: 300px;
+            height: 300px;
+            border: 1px solid rgba(201, 169, 98, 0.1);
             border-radius: 50%;
         }
 
-        .hero-shape::after {
-            width: 30%;
-            height: 30%;
-            border-radius: 50%;
-            background: rgba(212, 175, 55, 0.4);
+        .mechanical-accent:nth-child(1) {
+            top: 10%;
+            right: 10%;
+            animation: rotate-slow 40s linear infinite;
         }
 
-        .hero-shape:nth-child(1) {
-            top: 15%;
-            right: 8%;
-            width: 150px;
-            height: 150px;
-            box-shadow:
-                inset 0 0 20px rgba(212, 175, 55, 0.2),
-                0 0 30px rgba(212, 175, 55, 0.1);
-        }
-
-        .hero-shape:nth-child(2) {
-            top: 50%;
-            right: 15%;
-            animation-direction: reverse;
-            animation-duration: 20s;
-            box-shadow:
-                inset 0 0 15px rgba(30, 144, 255, 0.2),
-                0 0 25px rgba(30, 144, 255, 0.1);
-        }
-
-        .hero-shape:nth-child(3) {
-            bottom: 20%;
-            right: 5%;
-            width: 100px;
-            height: 100px;
-            animation-duration: 12s;
-            box-shadow:
-                inset 0 0 10px rgba(212, 175, 55, 0.2),
-                0 0 20px rgba(212, 175, 55, 0.1);
-        }
-
-        @keyframes rotateGear {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Animated Circuit Lines */
-        .circuit-lines {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-        }
-
-        .circuit-line {
-            position: absolute;
-            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
-            height: 2px;
-            width: 200px;
-            animation: circuitFlow 4s ease-in-out infinite;
-        }
-
-        .circuit-line:nth-child(1) {
-            top: 20%;
-            left: -200px;
-            animation-delay: 0s;
-        }
-
-        .circuit-line:nth-child(2) {
-            top: 40%;
-            left: -200px;
-            animation-delay: 1.5s;
-        }
-
-        .circuit-line:nth-child(3) {
-            top: 60%;
-            left: -200px;
-            animation-delay: 3s;
-        }
-
-        .circuit-line:nth-child(4) {
-            top: 80%;
-            left: -200px;
-            animation-delay: 2s;
-        }
-
-        @keyframes circuitFlow {
-            0% {
-                left: -200px;
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                left: 100%;
-                opacity: 0;
-            }
-        }
-
-        /* Parking Platform Animation */
-        .parking-platforms {
-            position: absolute;
-            right: 5%;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 400px;
-            height: 500px;
-        }
-
-        .platform {
-            position: absolute;
-            width: 100%;
-            height: 80px;
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            border-radius: 10px;
-            background: linear-gradient(135deg, rgba(0, 71, 171, 0.1), rgba(30, 144, 255, 0.05));
-            backdrop-filter: blur(5px);
-            box-shadow:
-                0 4px 15px rgba(0, 71, 171, 0.2),
-                inset 0 0 20px rgba(212, 175, 55, 0.1);
-            animation: platformMove 6s ease-in-out infinite;
-        }
-
-        .platform::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 30px;
-            background: rgba(212, 175, 55, 0.3);
-            border-radius: 5px;
-            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
-        }
-
-        .platform:nth-child(1) {
-            top: 0;
-            animation-delay: 0s;
-        }
-
-        .platform:nth-child(2) {
-            top: 140px;
-            animation-delay: -2s;
-        }
-
-        .platform:nth-child(3) {
-            top: 280px;
-            animation-delay: -4s;
-        }
-
-        @keyframes platformMove {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-30px);
-            }
-        }
-
-        /* Glowing Particles */
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--gold-accent);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--gold-accent);
-            animation: particleFloat 8s ease-in-out infinite;
-        }
-
-        .particle:nth-child(1) {
-            left: 10%;
-            bottom: 10%;
-            animation-delay: 0s;
-        }
-
-        .particle:nth-child(2) {
-            left: 30%;
-            bottom: 20%;
-            animation-delay: 2s;
-        }
-
-        .particle:nth-child(3) {
-            left: 50%;
+        .mechanical-accent:nth-child(2) {
             bottom: 15%;
-            animation-delay: 4s;
+            right: 25%;
+            width: 200px;
+            height: 200px;
+            animation: rotate-slow 30s linear infinite reverse;
         }
 
-        .particle:nth-child(4) {
-            left: 70%;
-            bottom: 25%;
-            animation-delay: 6s;
-        }
-
-        @keyframes particleFloat {
-            0%, 100% {
-                transform: translate(0, 0);
-                opacity: 0;
-            }
-            50% {
-                transform: translate(20px, -200px);
-                opacity: 1;
-            }
+        @keyframes rotate-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .hero-container {
             max-width: 1400px;
             margin: 0 auto;
             position: relative;
-            z-index: 1;
+            z-index: 10;
+            width: 100%;
         }
 
         .hero-content {
-            max-width: 800px;
-            animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 700px;
         }
 
-        .hero-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem 1.75rem;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
-            backdrop-filter: blur(10px);
-            border: 2px solid var(--gold-accent);
-            border-radius: 50px;
-            color: var(--gold-accent);
-            font-size: 0.9375rem;
-            font-weight: 700;
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            background: rgba(201, 169, 98, 0.1);
+            border: 1px solid rgba(201, 169, 98, 0.2);
+            border-radius: 2px;
+            color: var(--accent-gold);
+            font-size: 0.75rem;
+            font-weight: 600;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
-            animation: pulse 3s ease-in-out infinite;
-        }
-
-        .hero-label::before {
-            content: '⚙';
-            font-size: 1.25rem;
-            animation: rotate 4s linear infinite;
-            filter: drop-shadow(0 0 8px var(--gold-accent));
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
-                transform: scale(1);
-            }
-            50% {
-                box-shadow: 0 4px 32px rgba(212, 175, 55, 0.6);
-                transform: scale(1.02);
-            }
-        }
-
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Data Stream Effect */
-        .data-stream {
-            position: absolute;
-            width: 2px;
-            height: 100px;
-            background: linear-gradient(180deg, transparent, rgba(212, 175, 55, 0.6), transparent);
-            animation: dataFlow 3s linear infinite;
-        }
-
-        .data-stream:nth-child(1) {
-            left: 20%;
-            top: -100px;
-            animation-delay: 0s;
-        }
-
-        .data-stream:nth-child(2) {
-            left: 40%;
-            top: -100px;
-            animation-delay: 1s;
-        }
-
-        .data-stream:nth-child(3) {
-            left: 60%;
-            top: -100px;
-            animation-delay: 2s;
-        }
-
-        .data-stream:nth-child(4) {
-            left: 80%;
-            top: -100px;
-            animation-delay: 0.5s;
-        }
-
-        @keyframes dataFlow {
-            0% {
-                top: -100px;
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                top: 100%;
-                opacity: 0;
-            }
+            margin-bottom: 2rem;
         }
 
         .hero-title {
-            font-size: clamp(3rem, 7vw, 6.5rem);
+            font-size: clamp(2.5rem, 6vw, 5.5rem);
+            font-weight: 800;
             color: var(--white);
-            margin-bottom: 2rem;
-            line-height: 1.05;
-            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
             letter-spacing: -0.03em;
-            animation: titleGlow 3s ease-in-out infinite;
         }
 
-        @keyframes titleGlow {
-            0%, 100% {
-                text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
-            }
-            50% {
-                text-shadow:
-                    0 4px 24px rgba(0, 0, 0, 0.5),
-                    0 0 30px rgba(212, 175, 55, 0.3),
-                    0 0 50px rgba(30, 144, 255, 0.2);
-            }
-        }
-
-        .hero-title .accent {
-            color: var(--gold-accent);
-            display: block;
-            position: relative;
-            text-shadow: 0 0 40px rgba(212, 175, 55, 0.5);
-        }
-
-        .hero-title .accent::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -10px;
-            width: 120px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gold-accent), transparent);
-            border-radius: 2px;
+        .hero-title .highlight {
+            color: var(--accent-gold);
         }
 
         .hero-subtitle {
-            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-            color: rgba(255, 255, 255, 0.95);
-            margin-bottom: 3.5rem;
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            color: rgba(255, 255, 255, 0.7);
             line-height: 1.7;
+            margin-bottom: 3rem;
             font-weight: 400;
-            max-width: 700px;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
         }
 
         .hero-cta-group {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 1rem 2.5rem;
+            padding: 1rem 2rem;
             font-size: 1rem;
             font-weight: 600;
-            border-radius: 50px;
+            border-radius: 4px;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            gap: 0.5rem;
+            transition: all 0.3s ease;
             cursor: pointer;
             border: none;
             font-family: 'Inter', sans-serif;
         }
 
         .btn-primary {
-            background: var(--white);
-            color: var(--primary-blue);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            background: var(--accent-gold);
+            color: var(--primary);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+            background: #B89952;
+            transform: translateY(-2px);
         }
 
         .btn-secondary {
             background: transparent;
             color: var(--white);
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--white);
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
         }
 
-        /* Stats Section - Premium */
+        /* Stats - Modern Minimal */
         .stats {
             position: relative;
-            margin-top: -80px;
+            margin-top: -60px;
             padding: 0 2rem;
-            z-index: 10;
+            z-index: 20;
         }
 
         .stats-container {
@@ -779,64 +349,45 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .stat-card {
             background: var(--white);
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow-lg);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-blue), var(--gold-accent), var(--secondary-blue));
-            background-size: 200% auto;
-            animation: shimmer 3s linear infinite;
+            padding: 2.5rem 2rem;
+            border-radius: 2px;
+            border-top: 2px solid var(--accent-gold);
+            transition: all 0.3s ease;
         }
 
         .stat-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
         .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 800;
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
+            color: var(--text-primary);
             line-height: 1;
+            margin-bottom: 0.5rem;
         }
 
         .stat-label {
-            font-size: 1rem;
+            font-size: 0.875rem;
             color: var(--text-secondary);
-            font-weight: 600;
+            font-weight: 500;
             letter-spacing: 0.05em;
             text-transform: uppercase;
         }
 
         /* Section Styles */
         .section {
-            padding: 7rem 2rem;
+            padding: 6rem 2rem;
         }
 
         .section-alt {
-            background: var(--light-bg);
+            background: var(--gray-100);
         }
 
         .section-container {
@@ -846,173 +397,120 @@
 
         .section-header {
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto 5rem;
+            max-width: 700px;
+            margin: 0 auto 4rem;
         }
 
         .section-label {
             display: inline-block;
-            padding: 0.5rem 1.25rem;
-            background: rgba(0, 71, 171, 0.08);
-            color: var(--primary-blue);
-            font-size: 0.875rem;
+            padding: 0.5rem 1rem;
+            background: rgba(201, 169, 98, 0.1);
+            color: var(--accent-gold);
+            font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            border-radius: 50px;
+            border-radius: 2px;
             margin-bottom: 1.5rem;
         }
 
         .section-title {
-            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
             color: var(--text-primary);
             margin-bottom: 1.5rem;
             line-height: 1.2;
+            letter-spacing: -0.02em;
         }
 
         .section-title .accent {
-            color: var(--gold-accent);
+            color: var(--accent-gold);
         }
 
         .section-description {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             color: var(--text-secondary);
-            line-height: 1.8;
-            max-width: 700px;
-            margin: 0 auto;
+            line-height: 1.7;
         }
 
-        /* About Section - Storytelling */
-        .about-grid {
+        /* Cards Grid */
+        .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
+            gap: 2rem;
         }
 
-        .about-card {
-            position: relative;
-            padding: 3rem;
+        .card {
             background: var(--white);
-            border-radius: 24px;
-            box-shadow: var(--shadow-md);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 2.5rem;
+            border-radius: 2px;
+            border-left: 2px solid var(--accent-gold);
+            transition: all 0.3s ease;
         }
 
-        .about-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
         }
 
-        .about-icon {
-            width: 64px;
-            height: 64px;
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(201, 169, 98, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-            border-radius: 16px;
-            font-size: 2rem;
+            font-size: 1.5rem;
             margin-bottom: 1.5rem;
-            box-shadow: var(--shadow-md);
+            border-radius: 2px;
         }
 
-        .about-card h3 {
-            font-size: 1.5rem;
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 1rem;
         }
 
-        .about-card p {
+        .card p {
             color: var(--text-secondary);
-            line-height: 1.8;
+            line-height: 1.7;
         }
 
-        .highlight-box {
-            margin-top: 5rem;
-            padding: 4rem;
-            background: linear-gradient(135deg, rgba(0, 71, 171, 0.03), rgba(30, 144, 255, 0.03));
-            border-radius: 32px;
-            border: 1px solid var(--border-light);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .highlight-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            width: 6px;
-            background: linear-gradient(180deg, var(--primary-blue), var(--gold-accent));
-        }
-
-        .highlight-box h3 {
-            font-size: 2rem;
-            color: var(--primary-blue);
-            margin-bottom: 1.5rem;
-        }
-
-        .highlight-box p {
-            font-size: 1.125rem;
-            line-height: 1.9;
-            color: var(--text-secondary);
-        }
-
-        /* Products Grid - Premium */
+        /* Products Grid */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
+            gap: 2rem;
         }
 
         .product-card {
             background: var(--white);
-            border-radius: 24px;
+            border-radius: 2px;
             overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-200);
         }
 
         .product-card:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent-gold);
         }
 
         .product-image {
             width: 100%;
             height: 280px;
-            background: linear-gradient(135deg, rgba(0, 71, 171, 0.05), rgba(30, 144, 255, 0.05));
+            background: var(--gray-100);
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .product-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.7s ease;
-        }
-
-        .product-card:hover .product-image::after {
-            left: 100%;
         }
 
         .product-image img {
             max-width: 90%;
             max-height: 240px;
             object-fit: contain;
-            position: relative;
-            z-index: 1;
         }
 
         .product-content {
@@ -1020,33 +518,33 @@
         }
 
         .product-title {
-            font-size: 1.5rem;
+            font-size: 1.375rem;
+            font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 1rem;
         }
 
         .product-description {
-            font-size: 1rem;
             color: var(--text-secondary);
             line-height: 1.7;
             margin-bottom: 1.5rem;
         }
 
         .product-link {
+            color: var(--accent-gold);
+            font-weight: 600;
+            text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            color: var(--primary-blue);
-            font-weight: 600;
-            text-decoration: none;
-            transition: gap 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .product-link:hover {
             gap: 0.75rem;
         }
 
-        /* Gallery - Premium */
+        /* Gallery */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -1055,50 +553,24 @@
 
         .gallery-item {
             aspect-ratio: 1;
-            border-radius: 20px;
+            border-radius: 2px;
             overflow: hidden;
             position: relative;
-            box-shadow: var(--shadow-md);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
         .gallery-item:hover {
-            transform: scale(1.05);
-            box-shadow: var(--shadow-xl);
-            z-index: 10;
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-label {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 2rem 1.5rem 1.5rem;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-            color: var(--white);
-            font-weight: 600;
-            font-size: 0.9375rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .gallery-item:hover .gallery-label {
-            opacity: 1;
-        }
-
-        /* Clients & Consultants Grid */
+        /* Logo Grid */
         .logo-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -1108,146 +580,88 @@
         .logo-card {
             background: var(--white);
             padding: 2.5rem;
-            border-radius: 20px;
+            border-radius: 2px;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 160px;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-light);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            min-height: 140px;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
         }
 
         .logo-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-blue);
+            border-color: var(--accent-gold);
+            transform: translateY(-4px);
         }
 
         .logo-card img {
             max-width: 100%;
-            max-height: 90px;
+            max-height: 80px;
             object-fit: contain;
-            filter: grayscale(0%);
-            opacity: 0.9;
-            transition: all 0.3s ease;
         }
 
-        .logo-card:hover img {
-            filter: drop-shadow(0 4px 12px rgba(0, 71, 171, 0.3));
-            opacity: 1;
-            transform: scale(1.05);
-        }
-
-        /* Features - Premium */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            padding: 3rem 2rem;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .feature-title {
-            font-size: 1.375rem;
-            color: var(--white);
-            margin-bottom: 1rem;
-        }
-
-        .feature-description {
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.7;
-        }
-
-        /* Contact Section - Premium */
+        /* Contact */
         .contact-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .contact-card {
             background: var(--white);
             padding: 2.5rem;
-            border-radius: 24px;
-            box-shadow: var(--shadow-md);
+            border-radius: 2px;
+            border-top: 2px solid var(--accent-gold);
             text-align: center;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .contact-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
         }
 
         .contact-icon {
-            width: 64px;
-            height: 64px;
+            width: 48px;
+            height: 48px;
             margin: 0 auto 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-            border-radius: 50%;
-            font-size: 1.75rem;
-            box-shadow: var(--shadow-md);
+            background: rgba(201, 169, 98, 0.1);
+            border-radius: 2px;
+            font-size: 1.5rem;
         }
 
         .contact-card h3 {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
+            font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 1rem;
         }
 
-        .contact-card p,
         .contact-card a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-card p {
             color: var(--text-secondary);
             line-height: 1.7;
         }
 
-        .contact-card a {
-            text-decoration: none;
-            font-weight: 600;
-            color: var(--primary-blue);
-            transition: color 0.3s ease;
-        }
-
-        .contact-card a:hover {
-            color: var(--secondary-blue);
-        }
-
-        /* Form - Premium */
+        /* Form */
         .contact-form {
             max-width: 700px;
             margin: 0 auto;
             background: var(--white);
             padding: 3rem;
-            border-radius: 32px;
-            box-shadow: var(--shadow-lg);
+            border-radius: 2px;
+            border: 1px solid var(--gray-200);
         }
 
         .form-group {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .form-label {
@@ -1255,17 +669,16 @@
             font-size: 0.875rem;
             font-weight: 600;
             color: var(--text-primary);
-            margin-bottom: 0.75rem;
-            letter-spacing: 0.025em;
-            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.02em;
         }
 
         .form-input,
         .form-textarea {
             width: 100%;
-            padding: 1rem 1.25rem;
-            border: 2px solid var(--border-light);
-            border-radius: 12px;
+            padding: 0.875rem 1rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 2px;
             font-size: 1rem;
             font-family: 'Inter', sans-serif;
             color: var(--text-primary);
@@ -1276,56 +689,38 @@
         .form-input:focus,
         .form-textarea:focus {
             outline: none;
-            border-color: var(--primary-blue);
-            box-shadow: 0 0 0 4px rgba(0, 71, 171, 0.1);
+            border-color: var(--accent-gold);
         }
 
         .form-textarea {
             resize: vertical;
-            min-height: 140px;
+            min-height: 120px;
         }
 
         .form-submit {
             width: 100%;
-            padding: 1.25rem;
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-            color: var(--white);
+            padding: 1rem;
+            background: var(--accent-gold);
+            color: var(--primary);
             font-size: 1rem;
             font-weight: 700;
             border: none;
-            border-radius: 50px;
+            border-radius: 4px;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: var(--shadow-md);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            letter-spacing: 0.02em;
         }
 
         .form-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
+            background: #B89952;
+            transform: translateY(-2px);
         }
 
-        .form-submit:active {
-            transform: translateY(-1px);
-        }
-
-        /* Footer - Premium */
+        /* Footer */
         .footer {
-            background: linear-gradient(135deg, var(--dark-navy) 0%, var(--primary-blue) 100%);
+            background: var(--primary);
             color: var(--white);
-            padding: 5rem 2rem 2rem;
-            position: relative;
-        }
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            padding: 4rem 2rem 2rem;
         }
 
         .footer-container {
@@ -1337,40 +732,31 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 3rem;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
-        .footer-brand {
-            max-width: 350px;
-        }
-
-        .footer-logo {
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-logo img {
-            height: 48px;
+        .footer-brand h3 {
+            font-size: 1.5rem;
             margin-bottom: 1rem;
         }
 
-        .footer-logo-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.75rem;
-            font-weight: 800;
-            color: var(--white);
+        .footer-brand .logo-accent {
+            color: var(--accent-gold);
         }
 
         .footer-description {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.7);
             line-height: 1.7;
             margin-bottom: 1.5rem;
         }
 
         .footer-section h4 {
-            font-size: 1.125rem;
+            font-size: 1rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
-            color: var(--gold-accent);
+            color: var(--accent-gold);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
 
         .footer-links {
@@ -1380,15 +766,23 @@
         }
 
         .footer-link {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+            cursor: pointer;
         }
 
         .footer-link:hover {
-            color: var(--gold-accent);
-            transform: translateX(4px);
+            color: var(--accent-gold);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
         }
 
         .social-links {
@@ -1398,76 +792,25 @@
         }
 
         .social-link {
-            width: 44px;
-            height: 44px;
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            text-decoration: none;
+            border-radius: 2px;
             color: var(--white);
-            font-size: 1.25rem;
+            text-decoration: none;
+            font-size: 1.125rem;
             transition: all 0.3s ease;
         }
 
         .social-link:hover {
-            background: var(--gold-accent);
-            transform: translateY(-3px);
+            background: var(--accent-gold);
+            color: var(--primary);
         }
 
-        .footer-bottom {
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.875rem;
-        }
-
-        .footer-bottom-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes shimmer {
-            to {
-                background-position: 200% center;
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .hero {
-                padding: 7rem 2rem 5rem;
-                min-height: 90vh;
-            }
-
-            .section {
-                padding: 5rem 1.5rem;
-            }
-
-            .products-grid,
-            .gallery-grid,
-            .logo-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
@@ -1482,134 +825,71 @@
             }
 
             .hero {
-                padding: 6rem 1.5rem 4rem;
-                min-height: 85vh;
+                padding: 6rem 1.5rem 3rem;
             }
 
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .hero-cta-group {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-                justify-content: center;
+            .mechanical-accent {
+                display: none;
             }
 
             .stats {
-                margin-top: -40px;
-                padding: 0 1rem;
+                margin-top: -30px;
             }
 
-            .stats-container {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .section {
-                padding: 4rem 1.5rem;
-            }
-
-            .section-header {
-                margin-bottom: 3rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
+            .stats-container,
+            .cards-grid,
             .products-grid,
             .gallery-grid,
-            .logo-grid,
-            .features-grid {
+            .logo-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
             }
 
             .contact-form {
                 padding: 2rem 1.5rem;
             }
 
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .highlight-box {
-                padding: 2.5rem 1.5rem;
-            }
-
-            .about-card {
-                padding: 2rem;
+            .section {
+                padding: 4rem 1.5rem;
             }
         }
 
-        @media (max-width: 480px) {
-            .header-container {
-                padding: 1rem 1.5rem;
-            }
-
-            .logo-image {
-                height: 52px;
-            }
-
-            .logo-text {
-                font-size: 1.25rem;
-            }
-
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .stat-number {
-                font-size: 2.75rem;
-            }
-
-            .section-title {
-                font-size: 1.75rem;
-            }
-
-            .hero-shape,
-            .parking-platforms,
-            .data-stream,
-            .circuit-line {
-                display: none;
-            }
-
-            .particle {
-                display: block;
-            }
-        }
-
-        @media (min-width: 1400px) {
-            .logo-image {
-                height: 80px;
-            }
-
-            .logo-text {
-                font-size: 2.25rem;
-            }
-        }
-
-        /* Scroll Reveal Animation */
+        /* Scroll Reveal */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.6s ease;
         }
 
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Dark Section */
+        .section-dark {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .section-dark .section-title,
+        .section-dark .card h3 {
+            color: var(--white);
+        }
+
+        .section-dark .card {
+            background: var(--secondary);
+            border-left-color: var(--accent-gold);
+        }
+
+        .section-dark .card p,
+        .section-dark .section-description {
+            color: rgba(255, 255, 255, 0.7);
+        }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header class="header" id="header">
+    <header class="header">
         <div class="header-container">
             <div class="logo-container">
                 <img src="infinite.png" alt="Infinite Solutions" class="logo-image" onerror="this.style.display='none'">
@@ -1619,15 +899,15 @@
             </div>
 
             <nav class="nav-menu">
-                <a class="nav-link" onclick="scrollToSection('home')">Home</a>
-                <a class="nav-link" onclick="scrollToSection('about')">About</a>
-                <a class="nav-link" onclick="scrollToSection('products')">Products</a>
-                <a class="nav-link" onclick="scrollToSection('gallery')">Gallery</a>
-                <a class="nav-link" onclick="scrollToSection('clients')">Clients</a>
-                <a class="nav-link" onclick="scrollToSection('contact')" class="nav-cta">Contact Us</a>
+                <a class="nav-link" onclick="scrollTo('home')">Home</a>
+                <a class="nav-link" onclick="scrollTo('about')">About</a>
+                <a class="nav-link" onclick="scrollTo('products')">Products</a>
+                <a class="nav-link" onclick="scrollTo('gallery')">Gallery</a>
+                <a class="nav-link" onclick="scrollTo('clients')">Clients</a>
+                <a class="nav-link nav-cta" onclick="scrollTo('contact')">Contact Us</a>
             </nav>
 
-            <button class="nav-toggle" id="navToggle" onclick="toggleMobileNav()">
+            <button class="nav-toggle" id="menuToggle">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -1636,86 +916,54 @@
     </header>
 
     <!-- Mobile Navigation -->
-    <nav class="mobile-nav" id="mobileNav">
+    <nav class="mobile-nav" id="mobileMenu">
         <div class="mobile-nav-content">
-            <a class="nav-link" onclick="scrollToSection('home')">Home</a>
-            <a class="nav-link" onclick="scrollToSection('about')">About Us</a>
-            <a class="nav-link" onclick="scrollToSection('products')">Products</a>
-            <a class="nav-link" onclick="scrollToSection('gallery')">Gallery</a>
-            <a class="nav-link" onclick="scrollToSection('clients')">Our Clients</a>
-            <a class="nav-link" onclick="scrollToSection('consultants')">Consultants</a>
-            <a class="nav-link" onclick="scrollToSection('features')">Why Choose Us</a>
-            <a class="nav-link" onclick="scrollToSection('contact')">Contact</a>
+            <a class="nav-link" onclick="scrollTo('home')">Home</a>
+            <a class="nav-link" onclick="scrollTo('about')">About</a>
+            <a class="nav-link" onclick="scrollTo('products')">Products</a>
+            <a class="nav-link" onclick="scrollTo('gallery')">Gallery</a>
+            <a class="nav-link" onclick="scrollTo('clients')">Clients</a>
+            <a class="nav-link" onclick="scrollTo('consultants')">Consultants</a>
+            <a class="nav-link" onclick="scrollTo('features')">Features</a>
+            <a class="nav-link" onclick="scrollTo('contact')">Contact</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero" id="home">
-        <!-- Mechanical Background -->
-        <div class="hero-bg-shapes">
-            <!-- Rotating Gears -->
-            <div class="hero-shape"></div>
-            <div class="hero-shape"></div>
-            <div class="hero-shape"></div>
-
-            <!-- Data Streams -->
-            <div class="data-stream"></div>
-            <div class="data-stream"></div>
-            <div class="data-stream"></div>
-            <div class="data-stream"></div>
-
-            <!-- Circuit Lines -->
-            <div class="circuit-lines">
-                <div class="circuit-line"></div>
-                <div class="circuit-line"></div>
-                <div class="circuit-line"></div>
-                <div class="circuit-line"></div>
-            </div>
-
-            <!-- Animated Parking Platforms -->
-            <div class="parking-platforms">
-                <div class="platform"></div>
-                <div class="platform"></div>
-                <div class="platform"></div>
-            </div>
-
-            <!-- Glowing Particles -->
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-        </div>
+        <div class="grid-lines"></div>
+        <div class="mechanical-accent"></div>
+        <div class="mechanical-accent"></div>
 
         <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-label">Industry Leaders Since 2010</div>
+                <div class="hero-badge">Est. 2010 • Industry Leaders</div>
                 <h1 class="hero-title">
-                    Redefining Urban Mobility
-                    <span class="accent">Through Innovation</span>
+                    Premium Automated<br>
+                    <span class="highlight">Parking Systems</span>
                 </h1>
                 <p class="hero-subtitle">
-                    We engineer world-class automated parking systems that transform urban spaces,
-                    delivering unparalleled efficiency, sophistication, and sustainability.
+                    Engineering intelligent infrastructure that transforms urban spaces through precision automation and uncompromising quality.
                 </p>
                 <div class="hero-cta-group">
-                    <a class="btn btn-primary" onclick="scrollToSection('contact')">
+                    <a class="btn btn-primary" onclick="scrollTo('contact')">
                         Start Your Project
                         <span>→</span>
                     </a>
-                    <a class="btn btn-secondary" onclick="scrollToSection('about')">
-                        Discover Our Story
+                    <a class="btn btn-secondary" onclick="scrollTo('about')">
+                        Learn More
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- Stats -->
     <section class="stats">
         <div class="stats-container">
             <div class="stat-card reveal">
                 <div class="stat-number">5000+</div>
-                <div class="stat-label">Parking Spaces Delivered</div>
+                <div class="stat-label">Parking Spaces</div>
             </div>
             <div class="stat-card reveal">
                 <div class="stat-number">55+</div>
@@ -1723,435 +971,334 @@
             </div>
             <div class="stat-card reveal">
                 <div class="stat-number">15+</div>
-                <div class="stat-label">Consultant Partners</div>
+                <div class="stat-label">Partner Consultants</div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About -->
     <section class="section" id="about">
         <div class="section-container">
             <div class="section-header">
-                <div class="section-label">Our Legacy</div>
+                <div class="section-label">About Us</div>
                 <h2 class="section-title">
-                    Pioneering Excellence in <span class="accent">Automated Parking</span>
+                    Engineering Excellence in <span class="accent">Automated Parking</span>
                 </h2>
                 <p class="section-description">
-                    We don't just build parking systems—we craft intelligent infrastructure that
-                    reshapes how cities manage space, combining cutting-edge technology with
-                    uncompromising quality and service.
+                    We design and manufacture premium automated parking systems that maximize space utilization while delivering seamless operation and lasting value.
                 </p>
             </div>
 
-            <div class="about-grid">
-                <div class="about-card reveal">
-                    <div class="about-icon">🏗️</div>
+            <div class="cards-grid">
+                <div class="card reveal">
+                    <div class="card-icon">🏗️</div>
                     <h3>Manufacturing Excellence</h3>
-                    <p>
-                        Based in Kalyan, Maharashtra, our state-of-the-art facility produces
-                        premium automated parking solutions engineered for reliability and longevity.
-                    </p>
+                    <p>State-of-the-art facility in Kalyan, Maharashtra producing premium automated parking solutions engineered for reliability.</p>
                 </div>
-
-                <div class="about-card reveal">
-                    <div class="about-icon">🎯</div>
+                <div class="card reveal">
+                    <div class="card-icon">🎯</div>
                     <h3>Proven Track Record</h3>
-                    <p>
-                        Over 5,000 parking spaces successfully installed across India, serving
-                        residential, commercial, and institutional clients with distinction.
-                    </p>
+                    <p>Over 5,000 parking spaces successfully installed across India, serving residential, commercial, and institutional clients.</p>
                 </div>
-
-                <div class="about-card reveal">
-                    <div class="about-icon">🤝</div>
-                    <h3>Partnership Ecosystem</h3>
-                    <p>
-                        Collaborating with 15+ leading consultants nationwide through our exclusive
-                        white-label program, extending our reach and impact.
-                    </p>
+                <div class="card reveal">
+                    <div class="card-icon">🤝</div>
+                    <h3>Partnership Network</h3>
+                    <p>Collaborating with 15+ leading consultants through our white-label program, extending excellence nationwide.</p>
                 </div>
-            </div>
-
-            <div class="highlight-box reveal">
-                <h3>Our White-Label Partnership Program</h3>
-                <p>
-                    We empower consultants across India to deliver world-class automated parking solutions
-                    under their own brand. Our comprehensive partnership includes full technical support,
-                    seamless installation, and dedicated after-sales service. Together, we're revolutionizing
-                    parking infrastructure nationwide, combining our manufacturing expertise with your market
-                    knowledge to create lasting value for clients.
-                </p>
             </div>
         </div>
     </section>
 
-    <!-- Products Section -->
+    <!-- Products -->
     <section class="section section-alt" id="products">
         <div class="section-container">
             <div class="section-header">
-                <div class="section-label">Our Solutions</div>
+                <div class="section-label">Solutions</div>
                 <h2 class="section-title">
-                    Engineered for <span class="accent">Every Challenge</span>
+                    Engineered for <span class="accent">Every Need</span>
                 </h2>
                 <p class="section-description">
-                    From compact residential solutions to large-scale commercial systems,
-                    our product portfolio delivers optimal space utilization and operational excellence.
+                    From compact residential to large-scale commercial systems, our portfolio delivers optimal space utilization and operational excellence.
                 </p>
             </div>
 
             <div class="products-grid">
                 <div class="product-card reveal">
                     <div class="product-image">
-                        <img src="puzzleparking.png" alt="Puzzle Parking System" onerror="this.style.display='none'">
+                        <img src="puzzleparking.png" alt="Puzzle Parking" onerror="this.style.display='none'">
                     </div>
                     <div class="product-content">
-                        <h3 class="product-title">Puzzle Parking Systems</h3>
+                        <h3 class="product-title">Puzzle Parking</h3>
                         <p class="product-description">
-                            Multi-level automated solution with horizontal and vertical movement.
-                            Perfect for medium to large capacity requirements with optimal space efficiency
-                            and rapid vehicle retrieval.
+                            Multi-level automated solution with horizontal and vertical movement for medium to large capacity requirements.
                         </p>
-                        <a href="#" class="product-link">
-                            Explore Details
-                            <span>→</span>
-                        </a>
+                        <a href="#" class="product-link">Learn More →</a>
                     </div>
                 </div>
 
                 <div class="product-card reveal">
                     <div class="product-image">
-                        <img src="towerparking.png" alt="Tower Parking System" onerror="this.style.display='none'">
+                        <img src="towerparking.png" alt="Tower Parking" onerror="this.style.display='none'">
                     </div>
                     <div class="product-content">
-                        <h3 class="product-title">Tower Parking Systems</h3>
+                        <h3 class="product-title">Tower Parking</h3>
                         <p class="product-description">
-                            Vertical rotary system ideal for high-rise buildings. Maximizes parking capacity
-                            with minimal ground footprint while ensuring fast, secure vehicle access.
+                            Vertical rotary system ideal for high-rise buildings, maximizing capacity with minimal footprint.
                         </p>
-                        <a href="#" class="product-link">
-                            Explore Details
-                            <span>→</span>
-                        </a>
+                        <a href="#" class="product-link">Learn More →</a>
                     </div>
                 </div>
 
                 <div class="product-card reveal">
                     <div class="product-image">
-                        <img src="stackparking.png" alt="Stack Parking System" onerror="this.style.display='none'">
+                        <img src="stackparking.png" alt="Stack Parking" onerror="this.style.display='none'">
                     </div>
                     <div class="product-content">
-                        <h3 class="product-title">Stack Parking Systems</h3>
+                        <h3 class="product-title">Stack Parking</h3>
                         <p class="product-description">
-                            Simple yet effective vertical stacking for residential and commercial spaces.
-                            Cost-effective solution with independent access and easy operation.
+                            Simple vertical stacking for residential and commercial spaces with independent access.
                         </p>
-                        <a href="#" class="product-link">
-                            Explore Details
-                            <span>→</span>
-                        </a>
+                        <a href="#" class="product-link">Learn More →</a>
                     </div>
                 </div>
 
                 <div class="product-card reveal">
                     <div class="product-image">
-                        <img src="hydraulicparking.png" alt="Hydraulic Parking System" onerror="this.style.display='none'">
+                        <img src="hydraulicparking.png" alt="Hydraulic Systems" onerror="this.style.display='none'">
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Hydraulic Systems</h3>
                         <p class="product-description">
-                            Robust hydraulic-powered solutions ensuring smooth, reliable operation.
-                            Engineered for heavy-duty applications and challenging environments.
+                            Robust hydraulic-powered solutions ensuring smooth operation for heavy-duty applications.
                         </p>
-                        <a href="#" class="product-link">
-                            Explore Details
-                            <span>→</span>
-                        </a>
+                        <a href="#" class="product-link">Learn More →</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Gallery -->
     <section class="section" id="gallery">
         <div class="section-container">
             <div class="section-header">
                 <div class="section-label">Portfolio</div>
                 <h2 class="section-title">
-                    Our Work <span class="accent">Speaks for Itself</span>
+                    Completed <span class="accent">Projects</span>
                 </h2>
                 <p class="section-description">
-                    Explore our completed projects across India—each one a testament to our
-                    commitment to quality, precision, and client satisfaction.
+                    Explore our installations across India—each showcasing our commitment to quality and precision.
                 </p>
             </div>
 
             <div class="gallery-grid">
                 <div class="gallery-item reveal">
-                    <img src="siteimage1.png" alt="Project Site 1" onerror="this.style.display='none'">
-                    <div class="gallery-label">Premium Installation</div>
+                    <img src="siteimage1.png" alt="Project 1" onerror="this.style.display='none'">
                 </div>
                 <div class="gallery-item reveal">
-                    <img src="siteimage2.png" alt="Project Site 2" onerror="this.style.display='none'">
-                    <div class="gallery-label">Commercial Project</div>
+                    <img src="siteimage2.png" alt="Project 2" onerror="this.style.display='none'">
                 </div>
                 <div class="gallery-item reveal">
-                    <img src="siteimage3.png" alt="Project Site 3" onerror="this.style.display='none'">
-                    <div class="gallery-label">Residential Complex</div>
+                    <img src="siteimage3.png" alt="Project 3" onerror="this.style.display='none'">
                 </div>
                 <div class="gallery-item reveal">
-                    <img src="siteimage4.png" alt="Project Site 4" onerror="this.style.display='none'">
-                    <div class="gallery-label">Tower Installation</div>
+                    <img src="siteimage4.png" alt="Project 4" onerror="this.style.display='none'">
                 </div>
                 <div class="gallery-item reveal">
-                    <img src="siteimage5.png" alt="Project Site 5" onerror="this.style.display='none'">
-                    <div class="gallery-label">Urban Solution</div>
+                    <img src="siteimage5.png" alt="Project 5" onerror="this.style.display='none'">
                 </div>
                 <div class="gallery-item reveal">
-                    <img src="siteimage6.png" alt="Project Site 6" onerror="this.style.display='none'">
-                    <div class="gallery-label">Puzzle System</div>
+                    <img src="siteimage6.png" alt="Project 6" onerror="this.style.display='none'">
                 </div>
                 <div class="gallery-item reveal">
-                    <img src="siteimage7.png" alt="Project Site 7" onerror="this.style.display='none'">
-                    <div class="gallery-label">Stack Parking</div>
+                    <img src="siteimage7.png" alt="Project 7" onerror="this.style.display='none'">
                 </div>
                 <div class="gallery-item reveal">
-                    <img src="siteimage8.png" alt="Project Site 8" onerror="this.style.display='none'">
-                    <div class="gallery-label">Hydraulic System</div>
-                </div>
-                <div class="gallery-item reveal">
-                    <img src="siteimage9.png" alt="Project Site 9" onerror="this.style.display='none'">
-                    <div class="gallery-label">Complete Site</div>
-                </div>
-                <div class="gallery-item reveal">
-                    <img src="siteimage10.png" alt="Project Site 10" onerror="this.style.display='none'">
-                    <div class="gallery-label">Finished Project</div>
+                    <img src="siteimage8.png" alt="Project 8" onerror="this.style.display='none'">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Clients Section -->
+    <!-- Clients -->
     <section class="section section-alt" id="clients">
         <div class="section-container">
             <div class="section-header">
-                <div class="section-label">Trusted Partnerships</div>
+                <div class="section-label">Clients</div>
                 <h2 class="section-title">
-                    Serving India's <span class="accent">Leading Organizations</span>
+                    Trusted by <span class="accent">Industry Leaders</span>
                 </h2>
-                <p class="section-description">
-                    We're honored to partner with exceptional organizations across sectors,
-                    delivering parking solutions that exceed expectations and create lasting value.
-                </p>
             </div>
 
             <div class="logo-grid">
                 <div class="logo-card reveal">
-                    <img src="clientlogo1.png" alt="Client 1" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EClient Partner%3C/text%3E%3C/svg%3E'">
+                    <img src="clientlogo1.png" alt="Client 1" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23C9A962\' font-family=\'Inter\' font-size=\'12\' font-weight=\'600\'%3ECLIENT%3C/text%3E%3C/svg%3E'">
                 </div>
                 <div class="logo-card reveal">
-                    <img src="clientlogo2.png" alt="Client 2" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EClient Partner%3C/text%3E%3C/svg%3E'">
+                    <img src="clientlogo2.png" alt="Client 2" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23C9A962\' font-family=\'Inter\' font-size=\'12\' font-weight=\'600\'%3ECLIENT%3C/text%3E%3C/svg%3E'">
                 </div>
                 <div class="logo-card reveal">
-                    <img src="clientlogo3.png" alt="Client 3" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EClient Partner%3C/text%3E%3C/svg%3E'">
+                    <img src="clientlogo3.png" alt="Client 3" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23C9A962\' font-family=\'Inter\' font-size=\'12\' font-weight=\'600\'%3ECLIENT%3C/text%3E%3C/svg%3E'">
                 </div>
                 <div class="logo-card reveal">
-                    <img src="clientlogo4.png" alt="Client 4" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EClient Partner%3C/text%3E%3C/svg%3E'">
+                    <img src="clientlogo4.png" alt="Client 4" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23C9A962\' font-family=\'Inter\' font-size=\'12\' font-weight=\'600\'%3ECLIENT%3C/text%3E%3C/svg%3E'">
                 </div>
                 <div class="logo-card reveal">
-                    <img src="clientlogo5.png" alt="Client 5" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EClient Partner%3C/text%3E%3C/svg%3E'">
+                    <img src="clientlogo5.png" alt="Client 5" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23C9A962\' font-family=\'Inter\' font-size=\'12\' font-weight=\'600\'%3ECLIENT%3C/text%3E%3C/svg%3E'">
                 </div>
                 <div class="logo-card reveal">
-                    <img src="clientlogo6.png" alt="Client 6" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EClient Partner%3C/text%3E%3C/svg%3E'">
+                    <img src="clientlogo6.png" alt="Client 6" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23C9A962\' font-family=\'Inter\' font-size=\'12\' font-weight=\'600\'%3ECLIENT%3C/text%3E%3C/svg%3E'">
                 </div>
                 <div class="logo-card reveal">
-                    <img src="clientlogo7.png" alt="Client 7" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EClient Partner%3C/text%3E%3C/svg%3E'">
+                    <img src="clientlogo7.png" alt="Client 7" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23C9A962\' font-family=\'Inter\' font-size=\'12\' font-weight=\'600\'%3ECLIENT%3C/text%3E%3C/svg%3E'">
                 </div>
                 <div class="logo-card reveal">
-                    <img src="clientlogo8.png" alt="Client 8" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EClient Partner%3C/text%3E%3C/svg%3E'">
+                    <img src="clientlogo8.png" alt="Client 8" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23C9A962\' font-family=\'Inter\' font-size=\'12\' font-weight=\'600\'%3ECLIENT%3C/text%3E%3C/svg%3E'">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Consultants Section -->
+    <!-- Consultants -->
     <section class="section" id="consultants">
         <div class="section-container">
             <div class="section-header">
-                <div class="section-label">Strategic Partnerships</div>
+                <div class="section-label">Partners</div>
                 <h2 class="section-title">
-                    Our <span class="accent">Consultant Network</span>
+                    Consultant <span class="accent">Network</span>
                 </h2>
                 <p class="section-description">
-                    Collaborating with India's premier consultants who deliver our solutions
-                    to their clients under their trusted brand, powered by our manufacturing excellence.
+                    Collaborating with premier consultants who deliver our solutions under their trusted brand.
                 </p>
             </div>
 
             <div class="logo-grid">
                 <div class="logo-card reveal">
-                    <img src="consultant1.png" alt="Consultant 1" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EConsultant Partner%3C/text%3E%3C/svg%3E'">
+                    <img src="consultant1.png" alt="Consultant 1" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23C9A962\' font-family=\'Inter\' font-size=\'12\' font-weight=\'600\'%3EPARTNER%3C/text%3E%3C/svg%3E'">
                 </div>
                 <div class="logo-card reveal">
-                    <img src="consultant2.png" alt="Consultant 2" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EConsultant Partner%3C/text%3E%3C/svg%3E'">
+                    <img src="consultant2.png" alt="Consultant 2" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23C9A962\' font-family=\'Inter\' font-size=\'12\' font-weight=\'600\'%3EPARTNER%3C/text%3E%3C/svg%3E'">
                 </div>
                 <div class="logo-card reveal">
-                    <img src="consultant3.png" alt="Consultant 3" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EConsultant Partner%3C/text%3E%3C/svg%3E'">
+                    <img src="consultant3.png" alt="Consultant 3" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23C9A962\' font-family=\'Inter\' font-size=\'12\' font-weight=\'600\'%3EPARTNER%3C/text%3E%3C/svg%3E'">
                 </div>
                 <div class="logo-card reveal">
-                    <img src="consultant4.png" alt="Consultant 4" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EConsultant Partner%3C/text%3E%3C/svg%3E'">
+                    <img src="consultant4.png" alt="Consultant 4" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23C9A962\' font-family=\'Inter\' font-size=\'12\' font-weight=\'600\'%3EPARTNER%3C/text%3E%3C/svg%3E'">
                 </div>
                 <div class="logo-card reveal">
-                    <img src="consultant5.png" alt="Consultant 5" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EConsultant Partner%3C/text%3E%3C/svg%3E'">
+                    <img src="consultant5.png" alt="Consultant 5" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23C9A962\' font-family=\'Inter\' font-size=\'12\' font-weight=\'600\'%3EPARTNER%3C/text%3E%3C/svg%3E'">
                 </div>
                 <div class="logo-card reveal">
-                    <img src="consultant6.png" alt="Consultant 6" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EConsultant Partner%3C/text%3E%3C/svg%3E'">
+                    <img src="consultant6.png" alt="Consultant 6" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23C9A962\' font-family=\'Inter\' font-size=\'12\' font-weight=\'600\'%3EPARTNER%3C/text%3E%3C/svg%3E'">
                 </div>
                 <div class="logo-card reveal">
-                    <img src="consultant7.png" alt="Consultant 7" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EConsultant Partner%3C/text%3E%3C/svg%3E'">
+                    <img src="consultant7.png" alt="Consultant 7" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23C9A962\' font-family=\'Inter\' font-size=\'12\' font-weight=\'600\'%3EPARTNER%3C/text%3E%3C/svg%3E'">
                 </div>
                 <div class="logo-card reveal">
-                    <img src="consultant8.png" alt="Consultant 8" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EConsultant Partner%3C/text%3E%3C/svg%3E'">
-                </div>
-                <div class="logo-card reveal">
-                    <img src="consultant9.png" alt="Consultant 9" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EConsultant Partner%3C/text%3E%3C/svg%3E'">
-                </div>
-                <div class="logo-card reveal">
-                    <img src="consultant10.png" alt="Consultant 10" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EConsultant Partner%3C/text%3E%3C/svg%3E'">
+                    <img src="consultant8.png" alt="Consultant 8" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23C9A962\' font-family=\'Inter\' font-size=\'12\' font-weight=\'600\'%3EPARTNER%3C/text%3E%3C/svg%3E'">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="section section-alt" id="features" style="background: linear-gradient(135deg, var(--dark-navy) 0%, var(--primary-blue) 100%);">
+    <!-- Features -->
+    <section class="section section-dark" id="features">
         <div class="section-container">
             <div class="section-header">
-                <div class="section-label" style="background: rgba(255, 255, 255, 0.15); color: var(--gold-accent);">Our Advantage</div>
-                <h2 class="section-title" style="color: var(--white);">
-                    Why Industry Leaders <span class="accent">Choose Us</span>
+                <div class="section-label" style="background: rgba(201, 169, 98, 0.15);">Our Advantage</div>
+                <h2 class="section-title">
+                    Why Choose <span class="accent">Infinite Solutions</span>
                 </h2>
-                <p class="section-description" style="color: rgba(255, 255, 255, 0.9);">
-                    Excellence isn't just our standard—it's our foundation. Every project receives
-                    the full benefit of our expertise, innovation, and unwavering commitment to quality.
+                <p class="section-description">
+                    Excellence in automation, backed by proven expertise and unwavering commitment to quality.
                 </p>
             </div>
 
-            <div class="features-grid">
-                <div class="feature-card reveal">
-                    <div class="feature-icon">🚀</div>
-                    <div class="feature-title">Rapid Deployment</div>
-                    <div class="feature-description">
-                        Swift, efficient installation with minimal disruption, getting your system
-                        operational faster without compromising quality.
-                    </div>
+            <div class="cards-grid">
+                <div class="card reveal">
+                    <div class="card-icon">🚀</div>
+                    <h3>Fast Deployment</h3>
+                    <p>Swift installation with minimal disruption, getting your system operational quickly without compromising quality.</p>
                 </div>
-
-                <div class="feature-card reveal">
-                    <div class="feature-icon">🔧</div>
-                    <div class="feature-title">24/7 Support</div>
-                    <div class="feature-description">
-                        Round-the-clock technical assistance and proactive maintenance ensuring
-                        uninterrupted operation and peak performance.
-                    </div>
+                <div class="card reveal">
+                    <div class="card-icon">🔧</div>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock technical assistance and maintenance ensuring uninterrupted operation.</p>
                 </div>
-
-                <div class="feature-card reveal">
-                    <div class="feature-icon">💡</div>
-                    <div class="feature-title">Smart Technology</div>
-                    <div class="feature-description">
-                        Advanced automation with IoT integration, real-time monitoring, and
-                        intelligent management capabilities.
-                    </div>
+                <div class="card reveal">
+                    <div class="card-icon">💡</div>
+                    <h3>Smart Technology</h3>
+                    <p>Advanced automation with IoT integration and intelligent management capabilities.</p>
                 </div>
-
-                <div class="feature-card reveal">
-                    <div class="feature-icon">🌱</div>
-                    <div class="feature-title">Sustainable Design</div>
-                    <div class="feature-description">
-                        Energy-efficient systems engineered to minimize environmental impact
-                        while reducing operational costs.
-                    </div>
+                <div class="card reveal">
+                    <div class="card-icon">🌱</div>
+                    <h3>Sustainable</h3>
+                    <p>Energy-efficient systems engineered to minimize environmental impact.</p>
                 </div>
-
-                <div class="feature-card reveal">
-                    <div class="feature-icon">🏆</div>
-                    <div class="feature-title">Uncompromising Quality</div>
-                    <div class="feature-description">
-                        Premium materials, rigorous testing, and meticulous craftsmanship
-                        ensuring long-lasting, reliable performance.
-                    </div>
+                <div class="card reveal">
+                    <div class="card-icon">🏆</div>
+                    <h3>Premium Quality</h3>
+                    <p>Superior materials and rigorous testing ensuring reliable performance.</p>
                 </div>
-
-                <div class="feature-card reveal">
-                    <div class="feature-icon">💰</div>
-                    <div class="feature-title">Maximum ROI</div>
-                    <div class="feature-description">
-                        Space-optimized designs and efficient operation delivering superior
-                        returns on your infrastructure investment.
-                    </div>
+                <div class="card reveal">
+                    <div class="card-icon">💰</div>
+                    <h3>Maximum ROI</h3>
+                    <p>Space-optimized designs delivering superior returns on investment.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="section" id="contact">
+    <!-- Contact -->
+    <section class="section section-alt" id="contact">
         <div class="section-container">
             <div class="section-header">
-                <div class="section-label">Connect With Us</div>
+                <div class="section-label">Contact</div>
                 <h2 class="section-title">
-                    Let's Build the <span class="accent">Future Together</span>
+                    Let's Build the <span class="accent">Future</span>
                 </h2>
                 <p class="section-description">
-                    Ready to transform your parking infrastructure? Our team is here to discuss
-                    your requirements and craft the perfect solution for your needs.
+                    Ready to transform your parking infrastructure? Our team is here to help.
                 </p>
             </div>
 
             <div class="contact-cards">
                 <div class="contact-card reveal">
                     <div class="contact-icon">📧</div>
-                    <h3>Email Us</h3>
+                    <h3>Email</h3>
                     <a href="mailto:sales@infinitesolutions.pro">sales@infinitesolutions.pro</a>
                 </div>
-
                 <div class="contact-card reveal">
                     <div class="contact-icon">📍</div>
-                    <h3>Visit Our Facility</h3>
+                    <h3>Location</h3>
                     <p>Kalyan Murbad Road<br>Kalyan, Maharashtra 421001</p>
                 </div>
-
                 <div class="contact-card reveal">
                     <div class="contact-icon">🤝</div>
-                    <h3>Join Our Network</h3>
-                    <p>Become a consultant partner and expand your business with us</p>
+                    <h3>Partner With Us</h3>
+                    <p>Join our consultant network</p>
                 </div>
             </div>
 
             <div class="contact-form reveal">
                 <form onsubmit="handleSubmit(event)">
                     <div class="form-group">
-                        <label class="form-label" for="name">Full Name</label>
-                        <input type="text" id="name" class="form-input" placeholder="Enter your name" required>
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-input" required>
                     </div>
-
                     <div class="form-group">
-                        <label class="form-label" for="email">Email Address</label>
-                        <input type="email" id="email" class="form-input" placeholder="your.email@company.com" required>
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" required>
                     </div>
-
                     <div class="form-group">
-                        <label class="form-label" for="phone">Phone Number</label>
-                        <input type="tel" id="phone" class="form-input" placeholder="+91 XXXXX XXXXX" required>
+                        <label class="form-label">Phone</label>
+                        <input type="tel" class="form-input" required>
                     </div>
-
                     <div class="form-group">
-                        <label class="form-label" for="message">Your Requirements</label>
-                        <textarea id="message" class="form-textarea" placeholder="Tell us about your project..." required></textarea>
+                        <label class="form-label">Message</label>
+                        <textarea class="form-textarea" required></textarea>
                     </div>
-
-                    <button type="submit" class="form-submit">Send Message</button>
+                    <button type="submit" class="form-submit">SEND MESSAGE</button>
                 </form>
             </div>
         </div>
@@ -2162,36 +1309,29 @@
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <div class="footer-logo">
-                        <img src="infinite.png" alt="Infinite Solutions" onerror="this.style.display='none'">
-                        <div class="footer-logo-text">
-                            INFINITE <span style="color: var(--gold-accent);">SOLUTIONS</span>
-                        </div>
-                    </div>
+                    <h3>INFINITE <span class="logo-accent">SOLUTIONS</span></h3>
                     <p class="footer-description">
-                        Pioneering automated parking solutions that transform urban spaces through
-                        innovation, quality, and excellence. Building the future of smart parking infrastructure.
+                        Engineering premium automated parking systems that transform urban spaces through innovation and excellence.
                     </p>
                     <div class="social-links">
-                        <a href="mailto:sales@infinitesolutions.pro" class="social-link" title="Email">📧</a>
-                        <a href="#" class="social-link" title="LinkedIn">💼</a>
-                        <a href="#" class="social-link" title="Location">📍</a>
-                        <a href="#" class="social-link" title="Phone">📱</a>
+                        <a href="mailto:sales@infinitesolutions.pro" class="social-link">📧</a>
+                        <a href="#" class="social-link">💼</a>
+                        <a href="#" class="social-link">📍</a>
                     </div>
                 </div>
 
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <div class="footer-links">
-                        <a class="footer-link" onclick="scrollToSection('home')">Home</a>
-                        <a class="footer-link" onclick="scrollToSection('about')">About Us</a>
-                        <a class="footer-link" onclick="scrollToSection('products')">Products</a>
-                        <a class="footer-link" onclick="scrollToSection('gallery')">Gallery</a>
+                        <a class="footer-link" onclick="scrollTo('home')">Home</a>
+                        <a class="footer-link" onclick="scrollTo('about')">About</a>
+                        <a class="footer-link" onclick="scrollTo('products')">Products</a>
+                        <a class="footer-link" onclick="scrollTo('gallery')">Gallery</a>
                     </div>
                 </div>
 
                 <div class="footer-section">
-                    <h4>Our Services</h4>
+                    <h4>Services</h4>
                     <div class="footer-links">
                         <a href="#" class="footer-link">Puzzle Parking</a>
                         <a href="#" class="footer-link">Tower Parking</a>
@@ -2201,13 +1341,11 @@
                 </div>
 
                 <div class="footer-section">
-                    <h4>Contact Info</h4>
+                    <h4>Contact</h4>
                     <div class="footer-links">
-                        <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.8;">
-                            <strong>Address:</strong><br>
+                        <p class="footer-description">
                             Kalyan Murbad Road<br>
                             Kalyan, Maharashtra 421001<br><br>
-                            <strong>Email:</strong><br>
                             sales@infinitesolutions.pro
                         </p>
                     </div>
@@ -2216,29 +1354,26 @@
 
             <div class="footer-bottom">
                 <p>&copy; 2024 Infinite Solutions. All Rights Reserved.</p>
-                <div class="footer-bottom-links">
-                    <a href="privacypolicy.html" class="footer-link">Privacy Policy</a>
-                    <a href="terms&conditions.html" class="footer-link">Terms & Conditions</a>
-                </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile Navigation Toggle
-        function toggleMobileNav() {
-            const mobileNav = document.getElementById('mobileNav');
-            const navToggle = document.getElementById('navToggle');
-            mobileNav.classList.toggle('active');
-            navToggle.classList.toggle('active');
-        }
+        // Mobile Menu Toggle - FIXED
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
 
-        // Smooth Scroll
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                const offset = 80;
-                const elementPosition = section.getBoundingClientRect().top;
+        menuToggle.addEventListener('click', function() {
+            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Scroll Function
+        function scrollTo(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                const offset = 90;
+                const elementPosition = element.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - offset;
 
                 window.scrollTo({
@@ -2246,66 +1381,43 @@
                     behavior: 'smooth'
                 });
 
-                // Close mobile nav if open
-                const mobileNav = document.getElementById('mobileNav');
-                const navToggle = document.getElementById('navToggle');
-                mobileNav.classList.remove('active');
-                navToggle.classList.remove('active');
+                // Close mobile menu
+                menuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
             }
         }
 
-        // Header Scroll Effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
+        // Scroll Reveal
+        const reveals = document.querySelectorAll('.reveal');
 
-        // Scroll Reveal Animation
-        const revealElements = document.querySelectorAll('.reveal');
-
-        const revealOnScroll = () => {
+        function revealOnScroll() {
             const windowHeight = window.innerHeight;
-            const revealPoint = 100;
-
-            revealElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-
-                if (elementTop < windowHeight - revealPoint) {
-                    element.classList.add('active');
+            reveals.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    el.classList.add('active');
                 }
             });
-        };
+        }
 
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll);
 
         // Form Submit
-        function handleSubmit(event) {
-            event.preventDefault();
-            alert('Thank you for your inquiry! Our team will contact you shortly.');
-            event.target.reset();
+        function handleSubmit(e) {
+            e.preventDefault();
+            alert('Thank you! We will contact you shortly.');
+            e.target.reset();
         }
 
-        // Close mobile nav when clicking outside
-        document.addEventListener('click', (event) => {
-            const mobileNav = document.getElementById('mobileNav');
-            const navToggle = document.getElementById('navToggle');
-
-            if (mobileNav.classList.contains('active') &&
-                !mobileNav.contains(event.target) &&
-                !navToggle.contains(event.target)) {
-                mobileNav.classList.remove('active');
-                navToggle.classList.remove('active');
+        // Close mobile menu on outside click
+        document.addEventListener('click', (e) => {
+            if (mobileMenu.classList.contains('active') &&
+                !mobileMenu.contains(e.target) &&
+                !menuToggle.contains(e.target)) {
+                menuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
             }
-        });
-
-        // Initialize animations on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            revealOnScroll();
         });
     </script>
 </body>
