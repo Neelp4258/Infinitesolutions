@@ -3,8 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infinite Solutions - Automated Parking Systems</title>
+    <title>Infinite Solutions - Premium Automated Parking Systems</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-blue: #0047AB;
+            --secondary-blue: #1E90FF;
+            --gold-accent: #D4AF37;
+            --dark-navy: #001F3F;
+            --light-bg: #F8FAFB;
+            --white: #FFFFFF;
+            --text-primary: #1A2332;
+            --text-secondary: #4A5568;
+            --text-light: #718096;
+            --border-light: #E2E8F0;
+            --shadow-sm: 0 2px 8px rgba(0, 71, 171, 0.04);
+            --shadow-md: 0 8px 24px rgba(0, 71, 171, 0.08);
+            --shadow-lg: 0 16px 48px rgba(0, 71, 171, 0.12);
+            --shadow-xl: 0 24px 64px rgba(0, 71, 171, 0.16);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,108 +32,196 @@
         }
 
         html {
+            scroll-behavior: smooth;
             overflow-x: hidden;
-            width: 100%;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #ffffff;
-            color: #333;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-primary);
+            background: var(--white);
+            line-height: 1.6;
             overflow-x: hidden;
-            width: 100%;
-            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #0047AB 0%, #1E90FF 100%);
-            color: white;
-            padding: 15px 20px;
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        /* Header - Luxury Navigation */
+        .header {
             position: fixed;
-            width: 100%;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-light);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .header-content {
+        .header.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            letter-spacing: 1px;
+        .logo-container {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 1rem;
         }
 
-        .logo img {
-            height: 40px;
+        .logo-image {
+            height: 48px;
             width: auto;
         }
 
-        .logo span {
-            color: #FFD700;
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            letter-spacing: -0.02em;
         }
 
-        .menu-btn {
-            background: rgba(255,255,255,0.15);
-            border: 2px solid rgba(255,255,255,0.3);
-            color: white;
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
-            cursor: pointer;
-            display: flex;
+        .logo-accent {
+            color: var(--gold-accent);
+        }
+
+        .nav-toggle {
+            display: none;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            transition: all 0.3s;
-            padding: 0;
+            gap: 6px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
         }
 
-        .menu-btn:active {
-            background: rgba(255,255,255,0.25);
-            transform: scale(0.95);
-        }
-
-        .menu-line {
-            width: 24px;
-            height: 3px;
-            background: white;
+        .nav-toggle span {
+            width: 28px;
+            height: 2px;
+            background: var(--primary-blue);
             border-radius: 2px;
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .menu-btn.active .menu-line:nth-child(1) {
+        .nav-toggle.active span:nth-child(1) {
             transform: rotate(45deg) translateY(8px);
         }
 
-        .menu-btn.active .menu-line:nth-child(2) {
+        .nav-toggle.active span:nth-child(2) {
             opacity: 0;
-            transform: translateX(-20px);
         }
 
-        .menu-btn.active .menu-line:nth-child(3) {
+        .nav-toggle.active span:nth-child(3) {
             transform: rotate(-45deg) translateY(-8px);
         }
 
-        /* Hero Section */
-        .hero {
-            margin-top: 60px;
-            background: linear-gradient(135deg, #0047AB 0%, #1E90FF 100%);
-            color: white;
-            padding: 80px 20px 100px;
-            text-align: center;
+        .nav-menu {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            text-decoration: none;
             position: relative;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold-accent);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            padding: 0.75rem 1.75rem;
+            background: var(--primary-blue);
+            color: var(--white);
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-cta:hover {
+            background: var(--dark-navy);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        /* Mobile Menu */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 85px;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--border-light);
+            box-shadow: var(--shadow-lg);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .mobile-nav.active {
+            max-height: calc(100vh - 85px);
+        }
+
+        .mobile-nav-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* Hero Section - Premium */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--dark-navy) 0%, var(--primary-blue) 50%, var(--secondary-blue) 100%);
+            padding: 8rem 2rem 6rem;
             overflow: hidden;
         }
 
@@ -124,9 +232,10 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
-            opacity: 0.6;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(30, 144, 255, 0.15) 0%, transparent 50%);
+            pointer-events: none;
         }
 
         .hero::after {
@@ -135,72 +244,127 @@
             bottom: -2px;
             left: 0;
             right: 0;
-            height: 100px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23f8f9fa"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23f8f9fa"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23f8f9fa"/></svg>') center bottom no-repeat;
-            background-size: cover;
+            height: 120px;
+            background: var(--white);
+            clip-path: polygon(0 60%, 100% 0%, 100% 100%, 0% 100%);
         }
 
-        .hero-content {
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
             position: relative;
             z-index: 1;
         }
 
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-            font-weight: 800;
-            line-height: 1.2;
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            opacity: 0.95;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-btn {
-            background: white;
-            color: #0047AB;
-            padding: 18px 45px;
-            border: none;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 6px 25px rgba(0,0,0,0.3);
-            transition: all 0.3s;
+        .hero-label {
             display: inline-block;
+            padding: 0.5rem 1.25rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            color: var(--gold-accent);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
         }
 
-        .cta-btn:active {
-            transform: translateY(2px) scale(0.98);
-            box-shadow: 0 3px 15px rgba(0,0,0,0.3);
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            font-weight: 800;
         }
 
-        /* Stats Section */
+        .hero-title .accent {
+            color: var(--gold-accent);
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-blue);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--white);
+        }
+
+        /* Stats Section - Premium */
         .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            padding: 40px 20px;
-            background: #f8f9fa;
+            position: relative;
+            margin-top: -80px;
+            padding: 0 2rem;
+            z-index: 10;
+        }
+
+        .stats-container {
             max-width: 1200px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
         }
 
         .stat-card {
-            text-align: center;
-            padding: 30px 20px;
-            background: white;
+            background: var(--white);
+            padding: 3rem 2rem;
             border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0,71,171,0.1);
+            box-shadow: var(--shadow-lg);
+            text-align: center;
             position: relative;
             overflow: hidden;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .stat-card::before {
@@ -210,61 +374,647 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #0047AB, #1E90FF);
+            background: linear-gradient(90deg, var(--primary-blue), var(--gold-accent), var(--secondary-blue));
+            background-size: 200% auto;
+            animation: shimmer 3s linear infinite;
         }
 
-        .stat-card:active {
+        .stat-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 8px 30px rgba(0,71,171,0.2);
+            box-shadow: var(--shadow-xl);
         }
 
         .stat-number {
-            font-size: 36px;
-            font-weight: 900;
-            background: linear-gradient(135deg, #0047AB 0%, #1E90FF 100%);
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 8px;
+            margin-bottom: 0.5rem;
+            line-height: 1;
         }
 
         .stat-label {
-            font-size: 14px;
-            color: #666;
+            font-size: 1rem;
+            color: var(--text-secondary);
             font-weight: 600;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
-        /* About Section */
-        .about {
-            padding: 40px 20px;
-            max-width: 1200px;
+        /* Section Styles */
+        .section {
+            padding: 7rem 2rem;
+        }
+
+        .section-alt {
+            background: var(--light-bg);
+        }
+
+        .section-container {
+            max-width: 1400px;
             margin: 0 auto;
         }
 
-        .section-title {
-            font-size: 32px;
-            color: #0047AB;
-            margin-bottom: 20px;
+        .section-header {
             text-align: center;
-            position: relative;
-            padding-bottom: 20px;
-            font-weight: 800;
+            max-width: 800px;
+            margin: 0 auto 5rem;
         }
 
-        .section-title::after {
+        .section-label {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            background: rgba(0, 71, 171, 0.08);
+            color: var(--primary-blue);
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .section-title .accent {
+            color: var(--gold-accent);
+        }
+
+        .section-description {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* About Section - Storytelling */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .about-card {
+            position: relative;
+            padding: 3rem;
+            background: var(--white);
+            border-radius: 24px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .about-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .about-icon {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 16px;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .about-card h3 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .about-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            margin-top: 5rem;
+            padding: 4rem;
+            background: linear-gradient(135deg, rgba(0, 71, 171, 0.03), rgba(30, 144, 255, 0.03));
+            border-radius: 32px;
+            border: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-box::before {
             content: '';
             position: absolute;
+            top: 0;
+            left: 0;
             bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #0047AB, #1E90FF, #0047AB);
-            border-radius: 2px;
-            background-size: 200% auto;
-            animation: shimmer 3s linear infinite;
+            width: 6px;
+            background: linear-gradient(180deg, var(--primary-blue), var(--gold-accent));
+        }
+
+        .highlight-box h3 {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-box p {
+            font-size: 1.125rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+        }
+
+        /* Products Grid - Premium */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, rgba(0, 71, 171, 0.05), rgba(30, 144, 255, 0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .product-card:hover .product-image::after {
+            left: 100%;
+        }
+
+        .product-image img {
+            max-width: 90%;
+            max-height: 240px;
+            object-fit: contain;
+            position: relative;
+            z-index: 1;
+        }
+
+        .product-content {
+            padding: 2rem;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .product-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-decoration: none;
+            transition: gap 0.3s ease;
+        }
+
+        .product-link:hover {
+            gap: 0.75rem;
+        }
+
+        /* Gallery - Premium */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-xl);
+            z-index: 10;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem 1.5rem 1.5rem;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.9375rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-label {
+            opacity: 1;
+        }
+
+        /* Clients & Consultants Grid */
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .logo-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 160px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .logo-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-blue);
+        }
+
+        .logo-card img {
+            max-width: 100%;
+            max-height: 90px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .logo-card:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* Features - Premium */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .feature-title {
+            font-size: 1.375rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+        }
+
+        /* Contact Section - Premium */
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .contact-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 50%;
+            font-size: 1.75rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-card h3 {
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card p,
+        .contact-card a {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .contact-card a {
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--primary-blue);
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: var(--secondary-blue);
+        }
+
+        /* Form - Premium */
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 32px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.025em;
+            text-transform: uppercase;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 2px solid var(--border-light);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-primary);
+            background: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 4px rgba(0, 71, 171, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1.25rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-md);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-submit:active {
+            transform: translateY(-1px);
+        }
+
+        /* Footer - Premium */
+        .footer {
+            background: linear-gradient(135deg, var(--dark-navy) 0%, var(--primary-blue) 100%);
+            color: var(--white);
+            padding: 5rem 2rem 2rem;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand {
+            max-width: 350px;
+        }
+
+        .footer-logo {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo img {
+            height: 48px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--white);
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--gold-accent);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-link:hover {
+            color: var(--gold-accent);
+            transform: translateX(4px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-decoration: none;
+            color: var(--white);
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--gold-accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes shimmer {
@@ -273,1146 +1023,802 @@
             }
         }
 
-        .about-text {
-            font-size: 16px;
-            line-height: 1.8;
-            color: #555;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
-            padding: 35px;
-            border-radius: 25px;
-            margin-top: 40px;
-            border-left: 5px solid #0047AB;
-            box-shadow: 0 8px 30px rgba(0,71,171,0.12);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .highlight-box::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(30,144,255,0.05) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        /* Products Section */
-        .products {
-            padding: 40px 20px;
-            background: #f8f9fa;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 8px 30px rgba(0,71,171,0.08);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(0,71,171,0.05);
-        }
-
-        .product-card:active {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 15px 50px rgba(0,71,171,0.15);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 220px;
-            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            color: #0047AB;
-            font-weight: bold;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-image::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%);
-            animation: shine 3s infinite;
-        }
-
-        @keyframes shine {
-            0% {
-                transform: translateX(-100%) translateY(-100%) rotate(45deg);
-            }
-            100% {
-                transform: translateX(100%) translateY(100%) rotate(45deg);
-            }
-        }
-
-        .product-image img {
-            max-width: 90%;
-            max-height: 190px;
-            object-fit: contain;
-            position: relative;
-            z-index: 1;
-        }
-
-        .product-content {
-            padding: 20px;
-        }
-
-        .product-title {
-            font-size: 20px;
-            color: #0047AB;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .product-desc {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .learn-more {
-            color: #1E90FF;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 14px;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .learn-more::after {
-            content: '→';
-            transition: transform 0.3s;
-        }
-
-        .learn-more:hover::after {
-            transform: translateX(5px);
-        }
-
-        /* Gallery Section */
-        .gallery {
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .gallery-item {
-            aspect-ratio: 1;
-            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,71,171,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            transition: all 0.3s;
-        }
-
-        .gallery-item:active {
-            transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(0,71,171,0.2);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-
-        .gallery-item:active img {
-            transform: scale(1.1);
-        }
-
-        .gallery-item::before {
-            content: attr(data-label);
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,71,171,0.95), rgba(0,71,171,0.7), transparent);
-            color: white;
-            padding: 20px 10px 12px;
-            font-size: 13px;
-            font-weight: bold;
-            z-index: 2;
-            letter-spacing: 0.5px;
-        }
-
-        /* Consultants Section */
-        .consultants {
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .consultants-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .consultant-card {
-            background: white;
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0,71,171,0.08);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            min-height: 130px;
-            border: 1px solid rgba(0,71,171,0.05);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .consultant-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(30,144,255,0.1), transparent);
-            transition: left 0.5s;
-        }
-
-        .consultant-card:active::before {
-            left: 100%;
-        }
-
-        .consultant-card:active {
-            transform: translateY(-8px) scale(1.03);
-            box-shadow: 0 8px 35px rgba(0,71,171,0.15);
-        }
-
-        .consultant-card img {
-            max-width: 100%;
-            max-height: 80px;
-            object-fit: contain;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Clients Section */
-        .clients {
-            padding: 40px 20px;
-            background: #f8f9fa;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .clients-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .client-card {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0,71,171,0.08);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            min-height: 140px;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .client-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0,71,171,0.02), rgba(30,144,255,0.02));
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .client-card:active::before {
-            opacity: 1;
-        }
-
-        .client-card:active {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 10px 40px rgba(0,71,171,0.15);
-            border-color: rgba(0,71,171,0.1);
-        }
-
-        .client-card img {
-            max-width: 100%;
-            max-height: 90px;
-            object-fit: contain;
-            position: relative;
-            z-index: 1;
-            transition: transform 0.3s;
-        }
-
-        .client-card:active img {
-            transform: scale(1.05);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #0047AB 0%, #1E90FF 100%);
-            color: white;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            max-width: 1200px;
-            margin: 30px auto 0;
-        }
-
-        .feature-card {
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.3);
-            transition: all 0.3s;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-
-        .feature-card:active {
-            transform: translateY(-5px);
-            background: rgba(255,255,255,0.2);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-        }
-
-        .feature-icon {
-            font-size: 48px;
-            margin-bottom: 15px;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-        }
-
-        .feature-title {
-            font-size: 20px;
-            font-weight: 800;
-            margin-bottom: 12px;
-        }
-
-        .feature-desc {
-            font-size: 14px;
-            opacity: 0.95;
-            line-height: 1.7;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .contact-info-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            max-width: 900px;
-            margin: 30px auto;
-        }
-
-        .contact-info-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            padding: 30px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 6px 25px rgba(0,71,171,0.1);
-            transition: all 0.3s;
-            border: 1px solid rgba(0,71,171,0.05);
-        }
-
-        .contact-info-card:active {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(0,71,171,0.15);
-        }
-
-        .contact-icon {
-            font-size: 42px;
-            margin-bottom: 15px;
-            filter: drop-shadow(0 2px 4px rgba(0,71,171,0.2));
-        }
-
-        .contact-info-card h3 {
-            color: #0047AB;
-            font-size: 20px;
-            margin-bottom: 12px;
-            font-weight: 800;
-        }
-
-        .contact-info-card p {
-            color: #555;
-            font-size: 14px;
-            line-height: 1.7;
-        }
-
-        .contact-info-card a {
-            color: #1E90FF;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 15px;
-            transition: color 0.3s;
-        }
-
-        .contact-info-card a:hover {
-            color: #0047AB;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 30px auto 0;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #0047AB;
-            font-weight: bold;
-            font-size: 14px;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px 18px;
-            border: 2px solid #e3f2fd;
-            border-radius: 12px;
-            font-size: 15px;
-            transition: all 0.3s;
-            font-family: inherit;
-            background: #ffffff;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #1E90FF;
-            box-shadow: 0 0 0 4px rgba(30,144,255,0.1);
-            transform: translateY(-2px);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, #0047AB 0%, #1E90FF 100%);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 6px 25px rgba(0,71,171,0.3);
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .submit-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.2);
-            transform: translate(-50%, -50%);
-            transition: width 0.5s, height 0.5s;
-        }
-
-        .submit-btn:active::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .submit-btn:active {
-            transform: translateY(2px);
-            box-shadow: 0 3px 15px rgba(0,71,171,0.3);
-        }
-
-        /* Footer */
-        footer {
-            background: #0047AB;
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-logo {
-            margin-bottom: 20px;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-            opacity: 0.9;
-        }
-
-        .footer-section-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin: 25px 0 15px;
-            color: #FFD700;
-        }
-
-        .footer-quick-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-        }
-
-        .quick-link-btn {
-            background: rgba(255,255,255,0.1);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: background 0.3s, transform 0.2s;
-            border: 1px solid rgba(255,255,255,0.2);
-            display: inline-block;
-        }
-
-        .quick-link-btn:active {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(2px);
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            transition: background 0.3s;
-            text-decoration: none;
-            color: white;
-        }
-
-        .social-icon:active {
-            background: rgba(255,255,255,0.2);
-        }
-
-        .copyright {
-            font-size: 12px;
-            opacity: 0.8;
-            margin-top: 20px;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu {
-            position: fixed;
-            top: 60px;
-            left: -100%;
-            width: 80%;
-            height: calc(100vh - 60px);
-            background: white;
-            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-            transition: left 0.3s;
-            z-index: 999;
-            padding: 20px;
-        }
-
-        .mobile-menu.active {
-            left: 0;
-        }
-
-        .menu-item {
-            padding: 15px 0;
-            border-bottom: 1px solid #f0f0f0;
-            color: #0047AB;
-            font-weight: 500;
-            cursor: pointer;
-        }
-
         /* Responsive Design */
-        @media (min-width: 768px) {
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
+        @media (max-width: 1024px) {
+            .hero {
+                padding: 7rem 2rem 5rem;
+                min-height: 90vh;
             }
 
-            .gallery-grid {
-                grid-template-columns: repeat(3, 1fr);
+            .section {
+                padding: 5rem 1.5rem;
             }
 
+            .products-grid,
+            .gallery-grid,
+            .logo-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .mobile-nav {
+                display: block;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 4rem;
+                min-height: 85vh;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-cta-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .stats {
+                margin-top: -40px;
+                padding: 0 1rem;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .section {
+                padding: 4rem 1.5rem;
+            }
+
+            .section-header {
+                margin-bottom: 3rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .products-grid,
+            .gallery-grid,
+            .logo-grid,
             .features-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
-            .consultants-grid {
-                grid-template-columns: repeat(3, 1fr);
+            .contact-form {
+                padding: 2rem 1.5rem;
             }
 
-            .clients-grid {
-                grid-template-columns: repeat(3, 1fr);
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
-            .contact-info-grid {
-                grid-template-columns: repeat(3, 1fr);
+            .highlight-box {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .about-card {
+                padding: 2rem;
             }
         }
 
-        @media (min-width: 1024px) {
-            .products-grid {
-                grid-template-columns: repeat(3, 1fr);
+        @media (max-width: 480px) {
+            .header-container {
+                padding: 1rem 1.5rem;
             }
 
-            .gallery-grid {
-                grid-template-columns: repeat(4, 1fr);
+            .logo-text {
+                font-size: 1.25rem;
             }
 
-            .features-grid {
-                grid-template-columns: repeat(3, 1fr);
+            .hero-title {
+                font-size: 2rem;
             }
 
-            .consultants-grid {
-                grid-template-columns: repeat(5, 1fr);
+            .stat-number {
+                font-size: 2.75rem;
             }
 
-            .clients-grid {
-                grid-template-columns: repeat(4, 1fr);
+            .section-title {
+                font-size: 1.75rem;
             }
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .fade-in {
-            animation: fadeInUp 0.6s ease-out;
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                <img src="infinite.png" alt="Infinite Solutions Logo" onerror="this.style.display='none'">
-                <span style="color: white;">INFINITE <span style="color: #FFD700;">SOLUTIONS</span></span>
+    <header class="header" id="header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="infinite.png" alt="Infinite Solutions" class="logo-image" onerror="this.style.display='none'">
+                <div class="logo-text">
+                    INFINITE <span class="logo-accent">SOLUTIONS</span>
+                </div>
             </div>
-            <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">
-                <span class="menu-line"></span>
-                <span class="menu-line"></span>
-                <span class="menu-line"></span>
+
+            <nav class="nav-menu">
+                <a class="nav-link" onclick="scrollToSection('home')">Home</a>
+                <a class="nav-link" onclick="scrollToSection('about')">About</a>
+                <a class="nav-link" onclick="scrollToSection('products')">Products</a>
+                <a class="nav-link" onclick="scrollToSection('gallery')">Gallery</a>
+                <a class="nav-link" onclick="scrollToSection('clients')">Clients</a>
+                <a class="nav-link" onclick="scrollToSection('contact')" class="nav-cta">Contact Us</a>
+            </nav>
+
+            <button class="nav-toggle" id="navToggle" onclick="toggleMobileNav()">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
         </div>
     </header>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="menu-item" onclick="scrollToSection('home')">Home</div>
-        <div class="menu-item" onclick="scrollToSection('about')">About Us</div>
-        <div class="menu-item" onclick="scrollToSection('products')">Products</div>
-        <div class="menu-item" onclick="scrollToSection('gallery')">Gallery</div>
-        <div class="menu-item" onclick="scrollToSection('clients')">Our Clients</div>
-        <div class="menu-item" onclick="scrollToSection('consultants')">Consultants</div>
-        <div class="menu-item" onclick="scrollToSection('features')">Features</div>
-        <div class="menu-item" onclick="scrollToSection('contact')">Contact</div>
-    </div>
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-content">
+            <a class="nav-link" onclick="scrollToSection('home')">Home</a>
+            <a class="nav-link" onclick="scrollToSection('about')">About Us</a>
+            <a class="nav-link" onclick="scrollToSection('products')">Products</a>
+            <a class="nav-link" onclick="scrollToSection('gallery')">Gallery</a>
+            <a class="nav-link" onclick="scrollToSection('clients')">Our Clients</a>
+            <a class="nav-link" onclick="scrollToSection('consultants')">Consultants</a>
+            <a class="nav-link" onclick="scrollToSection('features')">Why Choose Us</a>
+            <a class="nav-link" onclick="scrollToSection('contact')">Contact</a>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-content fade-in">
-            <h1>Smart Parking Solutions</h1>
-            <p>Revolutionizing Urban Parking with Advanced Automation Technology</p>
-            <button class="cta-btn" onclick="scrollToSection('contact')">Get Started</button>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-label">Industry Leaders Since 2010</div>
+                <h1 class="hero-title">
+                    Redefining Urban Mobility
+                    <span class="accent">Through Innovation</span>
+                </h1>
+                <p class="hero-subtitle">
+                    We engineer world-class automated parking systems that transform urban spaces,
+                    delivering unparalleled efficiency, sophistication, and sustainability.
+                </p>
+                <div class="hero-cta-group">
+                    <a class="btn btn-primary" onclick="scrollToSection('contact')">
+                        Start Your Project
+                        <span>→</span>
+                    </a>
+                    <a class="btn btn-secondary" onclick="scrollToSection('about')">
+                        Discover Our Story
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Stats Section -->
     <section class="stats">
-        <div class="stat-card fade-in">
-            <div class="stat-number">5000+</div>
-            <div class="stat-label">Parking Spaces</div>
-        </div>
-        <div class="stat-card fade-in">
-            <div class="stat-number">55+</div>
-            <div class="stat-label">Clients</div>
-        </div>
-        <div class="stat-card fade-in">
-            <div class="stat-number">15+</div>
-            <div class="stat-label">Consultants</div>
+        <div class="stats-container">
+            <div class="stat-card reveal">
+                <div class="stat-number">5000+</div>
+                <div class="stat-label">Parking Spaces Delivered</div>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-number">55+</div>
+                <div class="stat-label">Trusted Clients</div>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Consultant Partners</div>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about" id="about">
-        <h2 class="section-title">About Infinite Solutions</h2>
-        <p class="about-text">
-            We are pioneers in automated parking systems, providing innovative solutions that maximize space utilization 
-            and enhance user convenience. With cutting-edge technology and a commitment to excellence, we transform 
-            parking challenges into seamless experiences. Our systems are designed for reliability, efficiency, and 
-            sustainability, making urban parking smarter and more accessible.
-        </p>
-        <p class="about-text">
-            Based in Kalyan, Maharashtra, we have successfully completed over 5,000 parking spaces across India, 
-            serving 55+ satisfied clients. Our expertise lies not just in manufacturing but in creating solutions 
-            that meet the unique requirements of each project.
-        </p>
-        
-        <div class="highlight-box">
-            <h3 style="color: #0047AB; font-size: 22px; margin-bottom: 20px; text-align: center;">Our Consultant Network</h3>
-            <p class="about-text" style="margin-bottom: 0;">
-                We work with 15+ leading consultants across India through our exclusive white-label partnership program. 
-                Our consultants market and sell our automated parking systems under their own brand name, providing 
-                them with comprehensive support including technical expertise, installation services, and after-sales 
-                maintenance. This partnership model allows consultants to offer world-class parking solutions while we 
-                focus on manufacturing excellence and innovation. Together, we're revolutionizing parking infrastructure 
-                throughout the country.
-            </p>
+    <section class="section" id="about">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-label">Our Legacy</div>
+                <h2 class="section-title">
+                    Pioneering Excellence in <span class="accent">Automated Parking</span>
+                </h2>
+                <p class="section-description">
+                    We don't just build parking systems—we craft intelligent infrastructure that
+                    reshapes how cities manage space, combining cutting-edge technology with
+                    uncompromising quality and service.
+                </p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-card reveal">
+                    <div class="about-icon">🏗️</div>
+                    <h3>Manufacturing Excellence</h3>
+                    <p>
+                        Based in Kalyan, Maharashtra, our state-of-the-art facility produces
+                        premium automated parking solutions engineered for reliability and longevity.
+                    </p>
+                </div>
+
+                <div class="about-card reveal">
+                    <div class="about-icon">🎯</div>
+                    <h3>Proven Track Record</h3>
+                    <p>
+                        Over 5,000 parking spaces successfully installed across India, serving
+                        residential, commercial, and institutional clients with distinction.
+                    </p>
+                </div>
+
+                <div class="about-card reveal">
+                    <div class="about-icon">🤝</div>
+                    <h3>Partnership Ecosystem</h3>
+                    <p>
+                        Collaborating with 15+ leading consultants nationwide through our exclusive
+                        white-label program, extending our reach and impact.
+                    </p>
+                </div>
+            </div>
+
+            <div class="highlight-box reveal">
+                <h3>Our White-Label Partnership Program</h3>
+                <p>
+                    We empower consultants across India to deliver world-class automated parking solutions
+                    under their own brand. Our comprehensive partnership includes full technical support,
+                    seamless installation, and dedicated after-sales service. Together, we're revolutionizing
+                    parking infrastructure nationwide, combining our manufacturing expertise with your market
+                    knowledge to create lasting value for clients.
+                </p>
+            </div>
         </div>
     </section>
 
     <!-- Products Section -->
-    <section class="products" id="products">
-        <h2 class="section-title">Our Products</h2>
-        <div class="products-grid">
-            <div class="product-card fade-in">
-                <div class="product-image">
-                    <img src="puzzleparking.png" alt="Puzzle Parking" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'z-index:1\'>Puzzle Parking System</span>'">
-                </div>
-                <div class="product-content">
-                    <h3 class="product-title">Puzzle Parking</h3>
-                    <p class="product-desc">
-                        Multi-level automated parking with horizontal and vertical movement. Perfect for medium to large 
-                        capacity requirements with optimal space utilization.
-                    </p>
-                    <a href="#" class="learn-more">Learn More</a>
-                </div>
+    <section class="section section-alt" id="products">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-label">Our Solutions</div>
+                <h2 class="section-title">
+                    Engineered for <span class="accent">Every Challenge</span>
+                </h2>
+                <p class="section-description">
+                    From compact residential solutions to large-scale commercial systems,
+                    our product portfolio delivers optimal space utilization and operational excellence.
+                </p>
             </div>
 
-            <div class="product-card fade-in">
-                <div class="product-image">
-                    <img src="towerparking.png" alt="Tower Parking" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'z-index:1\'>Tower Parking System</span>'">
+            <div class="products-grid">
+                <div class="product-card reveal">
+                    <div class="product-image">
+                        <img src="puzzleparking.png" alt="Puzzle Parking System" onerror="this.style.display='none'">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Puzzle Parking Systems</h3>
+                        <p class="product-description">
+                            Multi-level automated solution with horizontal and vertical movement.
+                            Perfect for medium to large capacity requirements with optimal space efficiency
+                            and rapid vehicle retrieval.
+                        </p>
+                        <a href="#" class="product-link">
+                            Explore Details
+                            <span>→</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="product-content">
-                    <h3 class="product-title">Tower Parking</h3>
-                    <p class="product-desc">
-                        Vertical rotary system ideal for high-rise buildings. Maximizes parking capacity with minimal 
-                        ground footprint and rapid vehicle retrieval.
-                    </p>
-                    <a href="#" class="learn-more">Learn More</a>
-                </div>
-            </div>
 
-            <div class="product-card fade-in">
-                <div class="product-image">
-                    <img src="stackparking.png" alt="Stack Parking" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'z-index:1\'>Stack Parking System</span>'">
+                <div class="product-card reveal">
+                    <div class="product-image">
+                        <img src="towerparking.png" alt="Tower Parking System" onerror="this.style.display='none'">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Tower Parking Systems</h3>
+                        <p class="product-description">
+                            Vertical rotary system ideal for high-rise buildings. Maximizes parking capacity
+                            with minimal ground footprint while ensuring fast, secure vehicle access.
+                        </p>
+                        <a href="#" class="product-link">
+                            Explore Details
+                            <span>→</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="product-content">
-                    <h3 class="product-title">Stack Parking</h3>
-                    <p class="product-desc">
-                        Simple vertical stacking solution for residential and commercial spaces. Cost-effective and 
-                        easy to operate with independent access.
-                    </p>
-                    <a href="#" class="learn-more">Learn More</a>
-                </div>
-            </div>
 
-            <div class="product-card fade-in">
-                <div class="product-image">
-                    <img src="hydraulicparking.png" alt="Hydraulic Parking" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'z-index:1\'>Hydraulic Parking System</span>'">
+                <div class="product-card reveal">
+                    <div class="product-image">
+                        <img src="stackparking.png" alt="Stack Parking System" onerror="this.style.display='none'">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Stack Parking Systems</h3>
+                        <p class="product-description">
+                            Simple yet effective vertical stacking for residential and commercial spaces.
+                            Cost-effective solution with independent access and easy operation.
+                        </p>
+                        <a href="#" class="product-link">
+                            Explore Details
+                            <span>→</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="product-content">
-                    <h3 class="product-title">Hydraulic Systems</h3>
-                    <p class="product-desc">
-                        Robust hydraulic-powered solutions ensuring smooth and reliable operation. Perfect for heavy-duty 
-                        applications and challenging environments.
-                    </p>
-                    <a href="#" class="learn-more">Learn More</a>
+
+                <div class="product-card reveal">
+                    <div class="product-image">
+                        <img src="hydraulicparking.png" alt="Hydraulic Parking System" onerror="this.style.display='none'">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Hydraulic Systems</h3>
+                        <p class="product-description">
+                            Robust hydraulic-powered solutions ensuring smooth, reliable operation.
+                            Engineered for heavy-duty applications and challenging environments.
+                        </p>
+                        <a href="#" class="product-link">
+                            Explore Details
+                            <span>→</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Gallery Section -->
-    <section class="gallery" id="gallery">
-        <h2 class="section-title">Project Gallery</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item" data-label="Completed Site 1">
-                <img src="siteimage1.png" alt="Site 1" onerror="this.style.display='none'">
+    <section class="section" id="gallery">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-label">Portfolio</div>
+                <h2 class="section-title">
+                    Our Work <span class="accent">Speaks for Itself</span>
+                </h2>
+                <p class="section-description">
+                    Explore our completed projects across India—each one a testament to our
+                    commitment to quality, precision, and client satisfaction.
+                </p>
             </div>
-            <div class="gallery-item" data-label="Completed Site 2">
-                <img src="siteimage2.png" alt="Site 2" onerror="this.style.display='none'">
-            </div>
-            <div class="gallery-item" data-label="Completed Site 3">
-                <img src="siteimage3.png" alt="Site 3" onerror="this.style.display='none'">
-            </div>
-            <div class="gallery-item" data-label="Completed Site 4">
-                <img src="siteimage4.png" alt="Site 4" onerror="this.style.display='none'">
-            </div>
-            <div class="gallery-item" data-label="Completed Site 5">
-                <img src="siteimage5.png" alt="Site 5" onerror="this.style.display='none'">
-            </div>
-            <div class="gallery-item" data-label="Completed Site 6">
-                <img src="siteimage6.png" alt="Site 6" onerror="this.style.display='none'">
-            </div>
-            <div class="gallery-item" data-label="Completed Site 7">
-                <img src="siteimage7.png" alt="Site 7" onerror="this.style.display='none'">
-            </div>
-            <div class="gallery-item" data-label="Completed Site 8">
-                <img src="siteimage8.png" alt="Site 8" onerror="this.style.display='none'">
-            </div>
-            <div class="gallery-item" data-label="Completed Site 9">
-                <img src="siteimage9.png" alt="Site 9" onerror="this.style.display='none'">
-            </div>
-            <div class="gallery-item" data-label="Completed Site 10">
-                <img src="siteimage10.png" alt="Site 10" onerror="this.style.display='none'">
+
+            <div class="gallery-grid">
+                <div class="gallery-item reveal">
+                    <img src="siteimage1.png" alt="Project Site 1" onerror="this.style.display='none'">
+                    <div class="gallery-label">Premium Installation</div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="siteimage2.png" alt="Project Site 2" onerror="this.style.display='none'">
+                    <div class="gallery-label">Commercial Project</div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="siteimage3.png" alt="Project Site 3" onerror="this.style.display='none'">
+                    <div class="gallery-label">Residential Complex</div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="siteimage4.png" alt="Project Site 4" onerror="this.style.display='none'">
+                    <div class="gallery-label">Tower Installation</div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="siteimage5.png" alt="Project Site 5" onerror="this.style.display='none'">
+                    <div class="gallery-label">Urban Solution</div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="siteimage6.png" alt="Project Site 6" onerror="this.style.display='none'">
+                    <div class="gallery-label">Puzzle System</div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="siteimage7.png" alt="Project Site 7" onerror="this.style.display='none'">
+                    <div class="gallery-label">Stack Parking</div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="siteimage8.png" alt="Project Site 8" onerror="this.style.display='none'">
+                    <div class="gallery-label">Hydraulic System</div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="siteimage9.png" alt="Project Site 9" onerror="this.style.display='none'">
+                    <div class="gallery-label">Complete Site</div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="siteimage10.png" alt="Project Site 10" onerror="this.style.display='none'">
+                    <div class="gallery-label">Finished Project</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Clients Section -->
-    <section class="clients" id="clients">
-        <h2 class="section-title">Our Esteemed Clients</h2>
-        <p class="about-text" style="max-width: 800px; margin: 0 auto 40px;">
-            Trusted by leading organizations across India. We take pride in delivering exceptional automated 
-            parking solutions that exceed expectations and create lasting partnerships.
-        </p>
-        <div class="clients-grid">
-            <div class="client-card fade-in">
-                <img src="clientlogo1.png" alt="Client 1" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Arial\' font-size=\'14\' font-weight=\'bold\'%3EClient 1%3C/text%3E%3C/svg%3E'">
+    <section class="section section-alt" id="clients">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-label">Trusted Partnerships</div>
+                <h2 class="section-title">
+                    Serving India's <span class="accent">Leading Organizations</span>
+                </h2>
+                <p class="section-description">
+                    We're honored to partner with exceptional organizations across sectors,
+                    delivering parking solutions that exceed expectations and create lasting value.
+                </p>
             </div>
-            <div class="client-card fade-in">
-                <img src="clientlogo2.png" alt="Client 2" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Arial\' font-size=\'14\' font-weight=\'bold\'%3EClient 2%3C/text%3E%3C/svg%3E'">
-            </div>
-            <div class="client-card fade-in">
-                <img src="clientlogo3.png" alt="Client 3" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Arial\' font-size=\'14\' font-weight=\'bold\'%3EClient 3%3C/text%3E%3C/svg%3E'">
-            </div>
-            <div class="client-card fade-in">
-                <img src="clientlogo4.png" alt="Client 4" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Arial\' font-size=\'14\' font-weight=\'bold\'%3EClient 4%3C/text%3E%3C/svg%3E'">
-            </div>
-            <div class="client-card fade-in">
-                <img src="clientlogo5.png" alt="Client 5" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Arial\' font-size=\'14\' font-weight=\'bold\'%3EClient 5%3C/text%3E%3C/svg%3E'">
-            </div>
-            <div class="client-card fade-in">
-                <img src="clientlogo6.png" alt="Client 6" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Arial\' font-size=\'14\' font-weight=\'bold\'%3EClient 6%3C/text%3E%3C/svg%3E'">
-            </div>
-            <div class="client-card fade-in">
-                <img src="clientlogo7.png" alt="Client 7" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Arial\' font-size=\'14\' font-weight=\'bold\'%3EClient 7%3C/text%3E%3C/svg%3E'">
-            </div>
-            <div class="client-card fade-in">
-                <img src="clientlogo8.png" alt="Client 8" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Arial\' font-size=\'14\' font-weight=\'bold\'%3EClient 8%3C/text%3E%3C/svg%3E'">
+
+            <div class="logo-grid">
+                <div class="logo-card reveal">
+                    <img src="clientlogo1.png" alt="Client 1" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EClient Partner%3C/text%3E%3C/svg%3E'">
+                </div>
+                <div class="logo-card reveal">
+                    <img src="clientlogo2.png" alt="Client 2" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EClient Partner%3C/text%3E%3C/svg%3E'">
+                </div>
+                <div class="logo-card reveal">
+                    <img src="clientlogo3.png" alt="Client 3" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EClient Partner%3C/text%3E%3C/svg%3E'">
+                </div>
+                <div class="logo-card reveal">
+                    <img src="clientlogo4.png" alt="Client 4" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EClient Partner%3C/text%3E%3C/svg%3E'">
+                </div>
+                <div class="logo-card reveal">
+                    <img src="clientlogo5.png" alt="Client 5" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EClient Partner%3C/text%3E%3C/svg%3E'">
+                </div>
+                <div class="logo-card reveal">
+                    <img src="clientlogo6.png" alt="Client 6" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EClient Partner%3C/text%3E%3C/svg%3E'">
+                </div>
+                <div class="logo-card reveal">
+                    <img src="clientlogo7.png" alt="Client 7" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EClient Partner%3C/text%3E%3C/svg%3E'">
+                </div>
+                <div class="logo-card reveal">
+                    <img src="clientlogo8.png" alt="Client 8" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23f8f9fa\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EClient Partner%3C/text%3E%3C/svg%3E'">
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Consultants Section -->
-    <section class="consultants" id="consultants">
-        <h2 class="section-title">Our Trusted Consultant Partners</h2>
-        <p class="about-text" style="max-width: 800px; margin: 0 auto 40px;">
-            We collaborate with leading consultants across India who trust our automated parking solutions. 
-            Through our white-label program, they deliver premium parking systems to their clients under their own brand.
-        </p>
-        <div class="consultants-grid">
-            <div class="consultant-card fade-in">
-                <img src="consultant1.png" alt="Consultant Partner 1" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Arial\' font-size=\'14\' font-weight=\'bold\'%3EPartner 1%3C/text%3E%3C/svg%3E'">
+    <section class="section" id="consultants">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-label">Strategic Partnerships</div>
+                <h2 class="section-title">
+                    Our <span class="accent">Consultant Network</span>
+                </h2>
+                <p class="section-description">
+                    Collaborating with India's premier consultants who deliver our solutions
+                    to their clients under their trusted brand, powered by our manufacturing excellence.
+                </p>
             </div>
-            <div class="consultant-card fade-in">
-                <img src="consultant2.png" alt="Consultant Partner 2" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Arial\' font-size=\'14\' font-weight=\'bold\'%3EPartner 2%3C/text%3E%3C/svg%3E'">
-            </div>
-            <div class="consultant-card fade-in">
-                <img src="consultant3.png" alt="Consultant Partner 3" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Arial\' font-size=\'14\' font-weight=\'bold\'%3EPartner 3%3C/text%3E%3C/svg%3E'">
-            </div>
-            <div class="consultant-card fade-in">
-                <img src="consultant4.png" alt="Consultant Partner 4" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Arial\' font-size=\'14\' font-weight=\'bold\'%3EPartner 4%3C/text%3E%3C/svg%3E'">
-            </div>
-            <div class="consultant-card fade-in">
-                <img src="consultant5.png" alt="Consultant Partner 5" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Arial\' font-size=\'14\' font-weight=\'bold\'%3EPartner 5%3C/text%3E%3C/svg%3E'">
-            </div>
-            <div class="consultant-card fade-in">
-                <img src="consultant6.png" alt="Consultant Partner 6" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Arial\' font-size=\'14\' font-weight=\'bold\'%3EPartner 6%3C/text%3E%3C/svg%3E'">
-            </div>
-            <div class="consultant-card fade-in">
-                <img src="consultant7.png" alt="Consultant Partner 7" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Arial\' font-size=\'14\' font-weight=\'bold\'%3EPartner 7%3C/text%3E%3C/svg%3E'">
-            </div>
-            <div class="consultant-card fade-in">
-                <img src="consultant8.png" alt="Consultant Partner 8" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Arial\' font-size=\'14\' font-weight=\'bold\'%3EPartner 8%3C/text%3E%3C/svg%3E'">
-            </div>
-            <div class="consultant-card fade-in">
-                <img src="consultant9.png" alt="Consultant Partner 9" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Arial\' font-size=\'14\' font-weight=\'bold\'%3EPartner 9%3C/text%3E%3C/svg%3E'">
-            </div>
-            <div class="consultant-card fade-in">
-                <img src="consultant10.png" alt="Consultant Partner 10" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Arial\' font-size=\'14\' font-weight=\'bold\'%3EPartner 10%3C/text%3E%3C/svg%3E'">
+
+            <div class="logo-grid">
+                <div class="logo-card reveal">
+                    <img src="consultant1.png" alt="Consultant 1" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EConsultant Partner%3C/text%3E%3C/svg%3E'">
+                </div>
+                <div class="logo-card reveal">
+                    <img src="consultant2.png" alt="Consultant 2" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EConsultant Partner%3C/text%3E%3C/svg%3E'">
+                </div>
+                <div class="logo-card reveal">
+                    <img src="consultant3.png" alt="Consultant 3" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EConsultant Partner%3C/text%3E%3C/svg%3E'">
+                </div>
+                <div class="logo-card reveal">
+                    <img src="consultant4.png" alt="Consultant 4" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EConsultant Partner%3C/text%3E%3C/svg%3E'">
+                </div>
+                <div class="logo-card reveal">
+                    <img src="consultant5.png" alt="Consultant 5" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EConsultant Partner%3C/text%3E%3C/svg%3E'">
+                </div>
+                <div class="logo-card reveal">
+                    <img src="consultant6.png" alt="Consultant 6" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EConsultant Partner%3C/text%3E%3C/svg%3E'">
+                </div>
+                <div class="logo-card reveal">
+                    <img src="consultant7.png" alt="Consultant 7" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EConsultant Partner%3C/text%3E%3C/svg%3E'">
+                </div>
+                <div class="logo-card reveal">
+                    <img src="consultant8.png" alt="Consultant 8" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EConsultant Partner%3C/text%3E%3C/svg%3E'">
+                </div>
+                <div class="logo-card reveal">
+                    <img src="consultant9.png" alt="Consultant 9" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EConsultant Partner%3C/text%3E%3C/svg%3E'">
+                </div>
+                <div class="logo-card reveal">
+                    <img src="consultant10.png" alt="Consultant 10" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\'%3E%3Crect fill=\'%23e3f2fd\' width=\'150\' height=\'100\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230047AB\' font-family=\'Inter\' font-size=\'14\' font-weight=\'600\'%3EConsultant Partner%3C/text%3E%3C/svg%3E'">
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="features" id="features">
-        <h2 class="section-title" style="color: white;">Why Choose Us</h2>
-        <div class="features-grid">
-            <div class="feature-card fade-in">
-                <div class="feature-icon">🚀</div>
-                <div class="feature-title">Fast Installation</div>
-                <div class="feature-desc">
-                    Quick and efficient installation process with minimal disruption to your operations.
-                </div>
+    <section class="section section-alt" id="features" style="background: linear-gradient(135deg, var(--dark-navy) 0%, var(--primary-blue) 100%);">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-label" style="background: rgba(255, 255, 255, 0.15); color: var(--gold-accent);">Our Advantage</div>
+                <h2 class="section-title" style="color: var(--white);">
+                    Why Industry Leaders <span class="accent">Choose Us</span>
+                </h2>
+                <p class="section-description" style="color: rgba(255, 255, 255, 0.9);">
+                    Excellence isn't just our standard—it's our foundation. Every project receives
+                    the full benefit of our expertise, innovation, and unwavering commitment to quality.
+                </p>
             </div>
 
-            <div class="feature-card fade-in">
-                <div class="feature-icon">🔧</div>
-                <div class="feature-title">24/7 Support</div>
-                <div class="feature-desc">
-                    Round-the-clock technical support and maintenance services to keep your system running.
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">🚀</div>
+                    <div class="feature-title">Rapid Deployment</div>
+                    <div class="feature-description">
+                        Swift, efficient installation with minimal disruption, getting your system
+                        operational faster without compromising quality.
+                    </div>
                 </div>
-            </div>
 
-            <div class="feature-card fade-in">
-                <div class="feature-icon">💡</div>
-                <div class="feature-title">Smart Technology</div>
-                <div class="feature-desc">
-                    Advanced automation with IoT integration and smart monitoring capabilities.
+                <div class="feature-card reveal">
+                    <div class="feature-icon">🔧</div>
+                    <div class="feature-title">24/7 Support</div>
+                    <div class="feature-description">
+                        Round-the-clock technical assistance and proactive maintenance ensuring
+                        uninterrupted operation and peak performance.
+                    </div>
                 </div>
-            </div>
 
-            <div class="feature-card fade-in">
-                <div class="feature-icon">🌱</div>
-                <div class="feature-title">Eco-Friendly</div>
-                <div class="feature-desc">
-                    Energy-efficient systems designed to reduce environmental impact and operating costs.
+                <div class="feature-card reveal">
+                    <div class="feature-icon">💡</div>
+                    <div class="feature-title">Smart Technology</div>
+                    <div class="feature-description">
+                        Advanced automation with IoT integration, real-time monitoring, and
+                        intelligent management capabilities.
+                    </div>
                 </div>
-            </div>
 
-            <div class="feature-card fade-in">
-                <div class="feature-icon">🏆</div>
-                <div class="feature-title">Quality Assured</div>
-                <div class="feature-desc">
-                    Premium quality materials and rigorous testing ensure long-lasting performance.
+                <div class="feature-card reveal">
+                    <div class="feature-icon">🌱</div>
+                    <div class="feature-title">Sustainable Design</div>
+                    <div class="feature-description">
+                        Energy-efficient systems engineered to minimize environmental impact
+                        while reducing operational costs.
+                    </div>
                 </div>
-            </div>
 
-            <div class="feature-card fade-in">
-                <div class="feature-icon">💰</div>
-                <div class="feature-title">Cost Effective</div>
-                <div class="feature-desc">
-                    Maximize ROI with space-saving designs and reduced operational expenses.
+                <div class="feature-card reveal">
+                    <div class="feature-icon">🏆</div>
+                    <div class="feature-title">Uncompromising Quality</div>
+                    <div class="feature-description">
+                        Premium materials, rigorous testing, and meticulous craftsmanship
+                        ensuring long-lasting, reliable performance.
+                    </div>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">💰</div>
+                    <div class="feature-title">Maximum ROI</div>
+                    <div class="feature-description">
+                        Space-optimized designs and efficient operation delivering superior
+                        returns on your infrastructure investment.
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-info-grid">
-            <div class="contact-info-card">
-                <div class="contact-icon">📧</div>
-                <h3>Email Us</h3>
-                <a href="mailto:sales@infinitesolutions.pro">sales@infinitesolutions.pro</a>
+    <section class="section" id="contact">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-label">Connect With Us</div>
+                <h2 class="section-title">
+                    Let's Build the <span class="accent">Future Together</span>
+                </h2>
+                <p class="section-description">
+                    Ready to transform your parking infrastructure? Our team is here to discuss
+                    your requirements and craft the perfect solution for your needs.
+                </p>
             </div>
-            <div class="contact-info-card">
-                <div class="contact-icon">📍</div>
-                <h3>Visit Us</h3>
-                <p>Kalyan Murbad Road<br>Kalyan, Maharashtra 421001</p>
+
+            <div class="contact-cards">
+                <div class="contact-card reveal">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email Us</h3>
+                    <a href="mailto:sales@infinitesolutions.pro">sales@infinitesolutions.pro</a>
+                </div>
+
+                <div class="contact-card reveal">
+                    <div class="contact-icon">📍</div>
+                    <h3>Visit Our Facility</h3>
+                    <p>Kalyan Murbad Road<br>Kalyan, Maharashtra 421001</p>
+                </div>
+
+                <div class="contact-card reveal">
+                    <div class="contact-icon">🤝</div>
+                    <h3>Join Our Network</h3>
+                    <p>Become a consultant partner and expand your business with us</p>
+                </div>
             </div>
-            <div class="contact-info-card">
-                <div class="contact-icon">🤝</div>
-                <h3>Partner With Us</h3>
-                <p>Join our consultant network and expand your business</p>
+
+            <div class="contact-form reveal">
+                <form onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Full Name</label>
+                        <input type="text" id="name" class="form-input" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address</label>
+                        <input type="email" id="email" class="form-input" placeholder="your.email@company.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Phone Number</label>
+                        <input type="tel" id="phone" class="form-input" placeholder="+91 XXXXX XXXXX" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="message">Your Requirements</label>
+                        <textarea id="message" class="form-textarea" placeholder="Tell us about your project..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="form-submit">Send Message</button>
+                </form>
             </div>
         </div>
-        <form class="contact-form" onsubmit="handleSubmit(event)">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required placeholder="Enter your name">
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required placeholder="Enter your email">
-            </div>
-            <div class="form-group">
-                <label for="phone">Phone</label>
-                <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" required placeholder="Tell us about your parking requirements"></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Send Message</button>
-        </form>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="infinite.png" alt="Infinite Solutions Logo" onerror="this.style.display='none'" style="height: 50px; margin-bottom: 15px;">
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="infinite.png" alt="Infinite Solutions" onerror="this.style.display='none'">
+                        <div class="footer-logo-text">
+                            INFINITE <span style="color: var(--gold-accent);">SOLUTIONS</span>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Pioneering automated parking solutions that transform urban spaces through
+                        innovation, quality, and excellence. Building the future of smart parking infrastructure.
+                    </p>
+                    <div class="social-links">
+                        <a href="mailto:sales@infinitesolutions.pro" class="social-link" title="Email">📧</a>
+                        <a href="#" class="social-link" title="LinkedIn">💼</a>
+                        <a href="#" class="social-link" title="Location">📍</a>
+                        <a href="#" class="social-link" title="Phone">📱</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a class="footer-link" onclick="scrollToSection('home')">Home</a>
+                        <a class="footer-link" onclick="scrollToSection('about')">About Us</a>
+                        <a class="footer-link" onclick="scrollToSection('products')">Products</a>
+                        <a class="footer-link" onclick="scrollToSection('gallery')">Gallery</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Our Services</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Puzzle Parking</a>
+                        <a href="#" class="footer-link">Tower Parking</a>
+                        <a href="#" class="footer-link">Stack Parking</a>
+                        <a href="#" class="footer-link">Hydraulic Systems</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="footer-links">
+                        <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.8;">
+                            <strong>Address:</strong><br>
+                            Kalyan Murbad Road<br>
+                            Kalyan, Maharashtra 421001<br><br>
+                            <strong>Email:</strong><br>
+                            sales@infinitesolutions.pro
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#products">Products</a>
-                <a href="#gallery">Gallery</a>
-                <a href="#clients">Clients</a>
-                <a href="#consultants">Consultants</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <div class="footer-section-title">Quick Links</div>
-            <div class="footer-quick-links">
-                <a href="privacypolicy.html" class="quick-link-btn">Privacy Policy</a>
-                <a href="terms&conditions.html" class="quick-link-btn">Terms & Conditions</a>
-            </div>
-            <div class="social-links">
-                <a href="mailto:sales@infinitesolutions.pro" class="social-icon" title="Email">📧</a>
-                <div class="social-icon" title="Phone">📱</div>
-                <div class="social-icon" title="Website">🌐</div>
-                <div class="social-icon" title="Location">📍</div>
-            </div>
-            <div class="copyright">
-                © 2024 Infinite Solutions. All Rights Reserved.<br>
-                Automated Parking Systems | Kalyan Murbad Road, Kalyan, Maharashtra 421001<br>
-                Email: sales@infinitesolutions.pro
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Infinite Solutions. All Rights Reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="privacypolicy.html" class="footer-link">Privacy Policy</a>
+                    <a href="terms&conditions.html" class="footer-link">Terms & Conditions</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script>
-        function toggleMenu() {
-            const menu = document.getElementById('mobileMenu');
-            const menuBtn = document.getElementById('menuBtn');
-            menu.classList.toggle('active');
-            menuBtn.classList.toggle('active');
+        // Mobile Navigation Toggle
+        function toggleMobileNav() {
+            const mobileNav = document.getElementById('mobileNav');
+            const navToggle = document.getElementById('navToggle');
+            mobileNav.classList.toggle('active');
+            navToggle.classList.toggle('active');
         }
 
+        // Smooth Scroll
         function scrollToSection(sectionId) {
             const section = document.getElementById(sectionId);
             if (section) {
-                section.scrollIntoView({ behavior: 'smooth' });
-                const menu = document.getElementById('mobileMenu');
-                const menuBtn = document.getElementById('menuBtn');
-                menu.classList.remove('active');
-                menuBtn.classList.remove('active');
+                const offset = 80;
+                const elementPosition = section.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+
+                // Close mobile nav if open
+                const mobileNav = document.getElementById('mobileNav');
+                const navToggle = document.getElementById('navToggle');
+                mobileNav.classList.remove('active');
+                navToggle.classList.remove('active');
             }
         }
 
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const revealPoint = 100;
+
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+
+                if (elementTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // Form Submit
         function handleSubmit(event) {
             event.preventDefault();
-            alert('Thank you for your inquiry! We will get back to you shortly.');
+            alert('Thank you for your inquiry! Our team will contact you shortly.');
             event.target.reset();
         }
 
-        // Add scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', (event) => {
+            const mobileNav = document.getElementById('mobileNav');
+            const navToggle = document.getElementById('navToggle');
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+            if (mobileNav.classList.contains('active') &&
+                !mobileNav.contains(event.target) &&
+                !navToggle.contains(event.target)) {
+                mobileNav.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
+        });
 
+        // Initialize animations on page load
         document.addEventListener('DOMContentLoaded', () => {
-            const fadeElements = document.querySelectorAll('.fade-in');
-            fadeElements.forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-                observer.observe(el);
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', (event) => {
-                const menu = document.getElementById('mobileMenu');
-                const menuBtn = document.getElementById('menuBtn');
-                
-                if (!menu.contains(event.target) && !menuBtn.contains(event.target) && menu.classList.contains('active')) {
-                    menu.classList.remove('active');
-                    menuBtn.classList.remove('active');
-                }
-            });
+            revealOnScroll();
         });
     </script>
 </body>
